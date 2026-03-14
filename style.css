@@ -29,11 +29,13 @@ nav a {
   font-weight: bold;
   margin-bottom: 25px;
   transition: all 0.3s ease;
+  text-decoration: none; /* removes underline */
 }
 
 nav a:hover, nav a.active {
   color: #ff6f61; /* coral hover */
   transform: translateX(5px);
+  text-decoration: none; /* ensures no underline appears */
 }
 
 /* MAIN CONTENT */
