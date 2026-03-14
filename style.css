@@ -135,10 +135,6 @@ main {
   flex-shrink: 0;      /* prevents images from shrinking too much */
 }
 
-.about-gallery img:hover, .portfolio-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(255,111,97,0.6);
-}
 
 /* Optional: make images smaller on mobile */
 @media (max-width: 768px) {
