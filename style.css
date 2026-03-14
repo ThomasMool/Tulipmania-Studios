@@ -41,12 +41,12 @@ nav .hamburger {
   margin-bottom: 20px;
 }
 
-/*
+
 nav .nav-links {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
-}*/
+}
 
 nav a {
   text-decoration: none;
