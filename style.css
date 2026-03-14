@@ -29,7 +29,8 @@ nav .nav-title {
   color: #fcf0e3;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 10px;
+  margin-bottom: 40px; /* space below title */
+  margin-top: 0;       /* bring it closer to top */
 }
 
 nav .nav-links {
