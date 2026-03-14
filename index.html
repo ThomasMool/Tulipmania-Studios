@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tulipmania Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -11,6 +11,7 @@
 
 <nav>
   <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="portfolio.html">Portfolio</a>
@@ -19,12 +20,19 @@
   </div>
 </nav>
 
-<section id="hero">
-  <img src="images/image1.jpg" alt="Tulipmania Studios Hero">
-  <div class="hero-text">
-    <h2>Passionate about films. Maniacally passionate.</h2>
-  </div>
-</section>
+<main>
+  <section id="hero">
+    <img src="images/image1.jpg" alt="Hero Image">
+    <div class="hero-text">
+      <h2>Passionate about films. Maniacally passionate.</h2>
+    </div>
+  </section>
+</main>
 
+<script>
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('show');
+}
+</script>
 </body>
 </html>
