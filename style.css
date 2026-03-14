@@ -1,14 +1,94 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.7">
-  <style type="text/css">
-  </style>
-</head>
-<body>
-</body>
-</html>
+/* GLOBAL STYLING */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fef9f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: #222;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 3em;
+}
+
+header p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* NAVIGATION BAR */
+nav {
+  background: #f2f2f2;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav a {
+  margin: 0 20px;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  color: #ff6600;
+  transform: scale(1.1);
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* GALLERY / IMAGES */
+section img {
+  margin: 15px;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* CONTACT LINKS */
+section a {
+  color: #ff6600;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  header h1 {
+    font-size: 2.2em;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+}
