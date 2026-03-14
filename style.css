@@ -3,48 +3,45 @@ body {
   font-family: 'Open Sans', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #0a0a0a; /* dark background */
+  background: #0a0a0a;
   color: #e6e6e6;
   line-height: 1.6;
-  display: flex;
-  min-height: 100vh;
 }
 
 /* VERTICAL NAVIGATION */
 nav {
   width: 200px;
-  background: rgba(27, 27, 47, 0.8); /* semi-transparent cinematic background */
+  background: rgba(20, 20, 30, 0.6); /* semi-transparent nav over hero */
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
   height: 100vh;
   box-shadow: 2px 0 10px rgba(0,0,0,0.7);
   position: fixed;
-  z-index: 10; /* stay above hero image */
+  z-index: 10; /* stays above hero */
 }
 
-/* Studio name stays at the top */
+/* Studio title */
 nav .nav-title {
   font-size: 24px;
   font-weight: 700;
   color: #fcf0e3;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-align: left;
   margin-bottom: 40px;
 }
 
-/* Links container with manual control */
+/* Links container */
 nav .nav-links {
   display: flex;
   flex-direction: column;
-  margin-top: 60px; /* adjust this to move links up/down */
+  margin-top: 50px; /* adjust to move links */
 }
 
 nav a {
-  text-decoration: none; /* removes underline */
+  text-decoration: none;
   text-transform: uppercase;
-  color: #fcf0e8; 
+  color: #fcf0e8;
   font-size: 19px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -53,7 +50,7 @@ nav a {
 }
 
 nav a:hover, nav a.active {
-  color: #ff6f61; /* coral hover */
+  color: #ff6f61;
   transform: translateX(5px);
 }
 
@@ -61,53 +58,49 @@ nav a:hover, nav a.active {
 main {
   margin-left: 280px; /* leave space for nav */
   flex: 1;
+  padding: 0;
 }
 
 /* HERO IMAGE FULL SCREEN */
 #hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;        /* full viewport height */
-  overflow: hidden;
-}
-
-#hero img {
-  position: absolute;   /* make image fill container */
+  position: fixed; /* covers entire viewport */
   top: 0;
   left: 0;
   width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0; /* behind nav */
+}
+
+#hero img {
+  width: 100%;
   height: 100%;
-  object-fit: cover;    /* cover entire screen */
+  object-fit: cover;
   object-position: center;
-  z-index: 0;
   display: block;
 }
 
-/* Optional: overlay text over hero image */
-#hero .hero-text {
+/* HERO TEXT */
+.hero-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 5; /* above image but below nav if needed */
   color: #fcf0e3;
   text-align: center;
 }
 
-#hero .hero-text h2 {
+.hero-text h2 {
   font-size: 2em;
   margin: 0;
 }
 
-/* HEADER */
-header {
-  margin-bottom: 40px;
-}
-
+/* HEADERS */
 header h1 {
   font-size: 3em;
   color: #f2c94c;
-  margin: 0 0 10px 0;
+  margin: 40px 0 10px 0;
 }
 
 header p {
@@ -117,7 +110,7 @@ header p {
 
 /* SECTIONS */
 section {
-  margin-bottom: 60px;
+  margin: 100px 40px 60px 40px; /* top margin to not overlap fixed nav */
 }
 
 section h2 {
