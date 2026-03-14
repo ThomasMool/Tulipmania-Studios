@@ -76,6 +76,9 @@ nav a:hover::after {
   width: 100%;
 }
 
+nav a.active::after {
+  width: 100%;
+}
 nav a:hover, nav a.active {
   color: #ffedfe;
   transform: translateX(5px);
