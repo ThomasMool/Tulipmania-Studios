@@ -23,8 +23,8 @@ nav {
 }
 
 nav a {
-  text-decoration: none; /* removes underline */
   text-transform: uppercase;
+  text-decoration: none; /* removes underline */
   color: #f2c94c; /* gold accent */
   text-transform: none; /* removes all caps */
   font-weight: 600; /* adjust boldness */
