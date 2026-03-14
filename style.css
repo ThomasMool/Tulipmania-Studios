@@ -127,7 +127,7 @@ nav a:hover, nav a.active {
   display: block;
 }
 
-.hero-text {
+.hero-text, .hero-text h2 {
   font-family: 'Lexend Exa', sans-serif; /* <-- new font */
   font-size: 2em; /* adjust size if needed */
   position: absolute;
@@ -137,11 +137,6 @@ nav a:hover, nav a.active {
   color: #fcf0e3;
   text-align: center;
   z-index: 10;
-}
-
-.hero-text h2 {
-  font-size: 2em;
-  margin: 0;
 }
 
 /* MAIN CONTENT */
