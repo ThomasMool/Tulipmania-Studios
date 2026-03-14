@@ -135,7 +135,7 @@ nav a:hover, nav a.active {
   color: #fcf0e3;
   text-align: center;
   z-index: 10;
-  font-family: 'Alumni Sans Pinstripe', cursive; /* <-- new font */
+  font-family: 'Lexend Exa', cursive; /* <-- new font */
   font-size: 2.5em; /* adjust size if needed */
 }
 
