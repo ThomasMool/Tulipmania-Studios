@@ -60,6 +60,18 @@ nav a {
   display: inline-block;
   transition: color 0.3s ease;
 }
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;   /* distance below text */
+  width: 0;
+  height: 2px;
+  background: #ff6f61;  /* stripe color */
+  transition: width 0.3s ease;
+}
+
 nav a:hover, nav a.active {
   color: #ffedfe;
   transform: translateX(5px);
