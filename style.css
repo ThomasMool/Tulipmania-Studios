@@ -127,7 +127,15 @@ nav a:hover, nav a.active {
   display: block;
 }
 
-.hero-text, .hero-text h2 {
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+.hero-text h2 {
   font-family: 'Lexend Exa', sans-serif !important; /* <-- new font */
   font-size: 2em; /* adjust size if needed */
   position: absolute;
