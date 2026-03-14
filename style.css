@@ -1,27 +1,28 @@
-/* GLOBAL STYLING */
-body {
-  font-family: 'Open Sans', Arial, sans-serif;
+/* RESET & GLOBAL */
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  font-family: 'Open Sans', Arial, sans-serif;
   background: #0a0a0a;
   color: #e6e6e6;
-  line-height: 1.6;
 }
 
-/* VERTICAL NAVIGATION */
+/* NAVIGATION */
 nav {
   width: 200px;
-  background: rgba(20, 20, 30, 0.6); /* semi-transparent nav over hero */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(27,27,47,0.8); /* semi-transparent over hero */
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
-  height: 100vh;
+  z-index: 10; /* above hero */
   box-shadow: 2px 0 10px rgba(0,0,0,0.7);
-  position: fixed;
-  z-index: 10; /* stays above hero */
 }
 
-/* Studio title */
 nav .nav-title {
   font-size: 24px;
   font-weight: 700;
@@ -31,11 +32,10 @@ nav .nav-title {
   margin-bottom: 40px;
 }
 
-/* Links container */
 nav .nav-links {
   display: flex;
   flex-direction: column;
-  margin-top: 50px; /* adjust to move links */
+  margin-top: 50px; /* move links down manually */
 }
 
 nav a {
@@ -54,51 +54,23 @@ nav a:hover, nav a.active {
   transform: translateX(5px);
 }
 
-/* MAIN CONTENT */
-main {
-  margin-left: 280px; /* leave space for nav */
-  flex: 1;
-  padding: 0;
-}
-
-/* REMOVE BODY MARGIN AND PADDING */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;  /* full height */
-}
-
 /* HERO IMAGE FULL SCREEN */
 #hero {
-  position: fixed;       /* fixed to viewport */
+  position: fixed;       /* fills entire viewport */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;         /* full viewport height */
-  z-index: 0;            /* behind nav */
+  height: 100vh;
   overflow: hidden;
+  z-index: 0;            /* behind nav */
 }
 
 #hero img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* covers entire container */
+  object-fit: cover;     /* cover full screen */
   object-position: center;
   display: block;
-}
-
-/* NAVIGATION BAR */
-nav {
-  width: 200px;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(27,27,47,0.8); /* semi-transparent */
-  display: flex;
-  flex-direction: column;
-  padding: 50px 20px;
-  z-index: 0;          /* stays above hero */
 }
 
 /* HERO TEXT */
@@ -107,7 +79,7 @@ nav {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5; /* above image but below nav if needed */
+  z-index: 5; /* above image but below nav */
   color: #fcf0e3;
   text-align: center;
 }
@@ -117,65 +89,14 @@ nav {
   margin: 0;
 }
 
-/* HEADERS */
-header h1 {
-  font-size: 3em;
-  color: #f2c94c;
-  margin: 40px 0 10px 0;
+/* MAIN CONTENT */
+main {
+  margin-left: 280px; /* leaves space for nav */
+  padding: 20px;
 }
 
-header p {
-  color: #ccc;
-  font-size: 1.2em;
-}
-
-/* SECTIONS */
-section {
-  margin: 100px 40px 60px 40px; /* top margin to not overlap fixed nav */
-}
-
-section h2 {
-  color: #ff6f61;
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-/* IMAGE GALLERIES */
-.about-gallery, .portfolio-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.about-gallery img, .portfolio-gallery img {
-  margin: 15px;
-  border-radius: 10px;
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.about-gallery img:hover, .portfolio-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(255,111,97,0.6);
-}
-
-/* CONTACT LINK */
-section#contact p a {
-  color: #f2c94c;
-}
-
-section#contact p a:hover {
-  color: #ff6f61;
-}
-
-/* RESPONSIVE DESIGN */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
   nav {
     width: 100%;
     height: auto;
@@ -183,8 +104,6 @@ section#contact p a:hover {
     padding: 15px;
     box-shadow: none;
     justify-content: center;
-    position: relative;
-    z-index: 10;
   }
   nav .nav-links {
     margin-top: 0;
@@ -196,8 +115,5 @@ section#contact p a:hover {
   main {
     margin-left: 0;
     padding: 20px;
-  }
-  .about-gallery img, .portfolio-gallery img {
-    max-width: 90%;
   }
 }
