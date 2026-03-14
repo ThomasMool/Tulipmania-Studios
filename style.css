@@ -56,9 +56,10 @@ nav a {
   font-weight: 400;
   letter-spacing: 1px;
   margin-bottom: 25px;
-  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
 }
-
 nav a:hover, nav a.active {
   color: #ffedfe;
   transform: translateX(5px);
