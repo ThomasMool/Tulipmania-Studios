@@ -139,15 +139,19 @@ nav a:hover, nav a.active {
   max-width: 1200px;
 }
 .hero-text h2 {
-  font-family: 'Lexend Exa', sans-serif !important; /* <-- new font */
-  font-size: 2em; /* adjust size if needed */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 3rem; /* Scalable size */
   color: #fcf0e3;
-  text-align: center;
-  z-index: 10;
+  
+  /* 2. Spacing and Horizontal Alignment */
+  letter-spacing: 0.8em;      /* Adjust this for more/less space between letters */
+  text-transform: uppercase;
+  white-space: nowrap;        /* 3. Forces the text to stay on one single line */
+  
+  /* 4. Remove all default indents/margins */
+  margin: 0;
+  padding: 0;
+  text-indent: 0.8em;         /* 5. Pro-tip: Offset the last letter's spacing to keep it perfectly centered */
 }
 
 /* MAIN CONTENT */
