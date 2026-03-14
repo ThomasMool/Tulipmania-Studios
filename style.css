@@ -11,7 +11,6 @@ body {
 
 /* VERTICAL NAVIGATION */
 nav {
-  text-transform: uppercase;
   text-decoration: none; /* removes underline */
   width: 130px;
   background: #1b1b2f; /* stylish dark-blue/purple */
@@ -27,8 +26,7 @@ nav a {
   text-decoration: none; /* removes underline */
   text-transform: uppercase;
   color: #f2c94c; /* gold accent */
-  text-transform: none; /* removes all caps */
-  font-size: 18px; /* larger nav links */
+  font-size: 23px; /* larger nav links */
   font-weight: 600; /* adjust boldness */
   letter-spacing: 1px;
   font-weight: bold;
