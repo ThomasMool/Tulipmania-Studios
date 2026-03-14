@@ -15,7 +15,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(27,27,47,0.8);
+  background: rgba(27,27,47,0.8); /* semi-transparent */
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
@@ -34,7 +34,7 @@ nav .nav-title {
 }
 
 nav .hamburger {
-  display: none;
+  display: none; /* hidden by default on desktop */
   font-size: 28px;
   color: #fcf0e3;
   cursor: pointer;
@@ -133,6 +133,7 @@ section#contact a:hover {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  /* NAVIGATION */
   nav {
     width: 100%;
     height: auto;
@@ -143,17 +144,26 @@ section#contact a:hover {
   }
 
   nav .hamburger {
-    display: block;
+    display: block; /* hamburger appears only on mobile */
   }
 
   nav .nav-links {
-    display: none; /* hidden by default */
+    display: none; /* hide links initially */
     flex-direction: column;
     margin-top: 10px;
   }
 
   nav .nav-links.show {
-    display: flex; /* show when clicked */
+    display: flex; /* show when hamburger clicked */
+  }
+
+  nav a {
+    font-size: 16px; /* smaller font on mobile */
+    margin-bottom: 15px;
+  }
+
+  nav .nav-title {
+    font-size: 20px; /* smaller title on mobile */
   }
 
   main {
@@ -162,7 +172,7 @@ section#contact a:hover {
   }
 
   #hero {
-    height: 60vh; /* shorter on mobile */
+    height: 60vh; /* shorter hero on mobile */
   }
 
   .about-gallery img, .portfolio-gallery img {
