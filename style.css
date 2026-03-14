@@ -18,7 +18,7 @@ nav {
   height: 100vh;
   box-shadow: 2px 0 10px rgba(0,0,0,0.7);
   position: fixed;
-  z-index: 0; /* stays above hero */
+  z-index: 10; /* stays above hero */
 }
 
 /* Studio title */
