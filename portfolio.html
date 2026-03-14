@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Tulipmania Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
-
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
   <div class="nav-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="portfolio.html">Portfolio</a>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -23,16 +22,20 @@
 <main>
   <header>
     <h1>Portfolio</h1>
+    <p>Our creative projects</p>
   </header>
 
-  <section>
-    <h2>Our Projects</h2>
-    <div class="portfolio-gallery">
-      <img src="images/image1.jpg" alt="Project 1">
-      <img src="images/image2.jpg" alt="Project 2">
-    </div>
+  <section class="portfolio-gallery">
+    <img src="images/image1.jpg" alt="Project 1">
+    <img src="images/image2.jpg" alt="Project 2">
+    <img src="images/image3.jpg" alt="Project 3">
   </section>
 </main>
 
+<script>
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('show');
+}
+</script>
 </body>
 </html>
