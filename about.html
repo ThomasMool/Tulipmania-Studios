@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Tulipmania Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav>
   <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
-
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
   <div class="nav-links">
-    <a href="index.html" class="active">Home</a>
+    <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About Us</a>
+    <a href="about.html" class="active">About Us</a>
     <a href="contact.html">Contact</a>
   </div>
 </nav>
@@ -23,21 +22,19 @@
 <main>
   <header>
     <h1>About Us</h1>
+    <p>We are inspired by the beauty of tulips and creativity in art and film.</p>
   </header>
 
-  <section>
-    <h2>Our Story</h2>
-    <p>We love to create and have been filming and writing music since our first job as newspaper boys. Please enjoy our works!</p>
-  </section>
-
-  <section id="about-images">
-    <h2>Our Inspiration</h2>
-    <div class="about-gallery">
-      <img src="images/image1.jpg" alt="Tulip Inspiration">
-      <img src="images/image2.jpg" alt="Studio View">
-    </div>
+  <section class="about-gallery">
+    <img src="images/image1.jpg" alt="Red Tulip">
+    <img src="images/image2.jpg" alt="Yellow Tulip">
   </section>
 </main>
 
+<script>
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('show');
+}
+</script>
 </body>
 </html>
