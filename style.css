@@ -1,53 +1,62 @@
 /* GLOBAL STYLING */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #fef9f0;
-  color: #333;
+  background: #0b0b0b;
+  color: #f2f2f2;
   line-height: 1.6;
 }
 
 a {
   text-decoration: none;
-  color: #333;
+  color: #ffcc00;
+}
+a:hover {
+  color: #ff9900;
+  transition: 0.3s;
 }
 
 /* HEADER */
 header {
-  background: #222;
-  color: white;
-  padding: 60px 20px;
+  background: linear-gradient(to right, #111111, #1a1a1a);
+  color: #ffcc00;
+  padding: 80px 20px;
   text-align: center;
+  border-bottom: 2px solid #ffcc00;
 }
 
 header h1 {
-  margin: 0;
   font-size: 3em;
+  margin: 0;
+  letter-spacing: 2px;
 }
 
 header p {
   font-size: 1.2em;
+  color: #ccc;
   margin-top: 10px;
 }
 
-/* NAVIGATION BAR */
+/* NAVIGATION */
 nav {
-  background: #f2f2f2;
+  background: #1a1a1a;
   padding: 15px 0;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-bottom: 1px solid #444;
 }
 
 nav a {
-  margin: 0 20px;
+  margin: 0 25px;
   font-weight: bold;
-  transition: color 0.3s, transform 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-nav a:hover {
-  color: #ff6600;
-  transform: scale(1.1);
+nav a.active, nav a:hover {
+  color: #ffcc00;
+  border-bottom: 2px solid #ffcc00;
+  padding-bottom: 5px;
 }
 
 /* SECTIONS */
@@ -58,23 +67,51 @@ section {
 }
 
 section h2 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin-bottom: 20px;
-  color: #222;
+  color: #ffcc00;
+  letter-spacing: 1px;
 }
 
-/* GALLERY / IMAGES */
-section img {
+/* IMAGE GALLERIES */
+.about-gallery, .portfolio-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.about-gallery img, .portfolio-gallery img {
   margin: 15px;
   border-radius: 10px;
-  max-width: 100%;
+  max-width: 300px;
+  width: 100%;
   height: auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* CONTACT LINKS */
-section a {
-  color: #ff6600;
+.about-gallery img:hover, .portfolio-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(255, 204, 0, 0.6);
+}
+
+/* HERO IMAGE */
+#hero img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-bottom: 3px solid #ffcc00;
+}
+
+/* CONTACT SECTION */
+section#contact p a {
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+section#contact p a:hover {
+  color: #ff9900;
 }
 
 /* RESPONSIVE DESIGN */
@@ -83,12 +120,16 @@ section a {
     display: block;
     margin: 10px 0;
   }
-  
+
   header h1 {
     font-size: 2.2em;
   }
 
   section {
     padding: 40px 15px;
+  }
+
+  .about-gallery img, .portfolio-gallery img {
+    max-width: 90%;
   }
 }
