@@ -7,19 +7,20 @@ body {
   color: #e6e6e6;
   line-height: 1.6;
   display: flex;
+  min-height: 100vh;
 }
 
 /* VERTICAL NAVIGATION */
 nav {
   width: 200px;
-  background: rgba(27, 27, 47, 0.8); /* last number is opacity 0.0 to 1.0 */
+  background: rgba(27, 27, 47, 0.8); /* semi-transparent cinematic background */
   display: flex;
-  flex-direction: column; /* stack items vertically */
+  flex-direction: column;
   padding: 50px 20px;
   height: 100vh;
   box-shadow: 2px 0 10px rgba(0,0,0,0.7);
   position: fixed;
-  text-decoration: none;
+  z-index: 10; /* stay above hero image */
 }
 
 /* Studio name stays at the top */
@@ -37,11 +38,9 @@ nav .nav-title {
 nav .nav-links {
   display: flex;
   flex-direction: column;
-  /* Remove auto margins to control position yourself */
-  margin-top: 60px; /* <-- Change this to move links up/down */
+  margin-top: 60px; /* adjust this to move links up/down */
 }
 
-/* Individual links */
 nav a {
   text-decoration: none; /* removes underline */
   text-transform: uppercase;
@@ -56,14 +55,48 @@ nav a {
 nav a:hover, nav a.active {
   color: #ff6f61; /* coral hover */
   transform: translateX(5px);
-  text-decoration: none;
 }
 
 /* MAIN CONTENT */
 main {
-  margin-left: 280px;
-  padding: 40px;
+  margin-left: 280px; /* leave space for nav */
   flex: 1;
+}
+
+/* HERO IMAGE FULL SCREEN */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;        /* full viewport height */
+  overflow: hidden;
+}
+
+#hero img {
+  position: absolute;   /* make image fill container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* cover entire screen */
+  object-position: center;
+  z-index: 0;
+  display: block;
+}
+
+/* Optional: overlay text over hero image */
+#hero .hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: #fcf0e3;
+  text-align: center;
+}
+
+#hero .hero-text h2 {
+  font-size: 2em;
+  margin: 0;
 }
 
 /* HEADER */
@@ -115,20 +148,6 @@ section h2 {
   box-shadow: 0 12px 25px rgba(255,111,97,0.6);
 }
 
-/* HERO IMAGE */
-#hero {
-  width: 100%;        /* full width of screen */
-  height: 100vh;      /* full viewport height */
-  overflow: hidden;   /* prevent scrollbars if image overflows */
-}
-
-#hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* makes image cover entire container without distortion */
-  object-position: center; /* center the image */
-}
-
 /* CONTACT LINK */
 section#contact p a {
   color: #f2c94c;
@@ -150,9 +169,11 @@ section#contact p a:hover {
     padding: 15px;
     box-shadow: none;
     justify-content: center;
+    position: relative;
+    z-index: 10;
   }
   nav .nav-links {
-    margin-top: 0; /* reset for horizontal nav */
+    margin-top: 0;
     flex-direction: row;
   }
   nav a {
