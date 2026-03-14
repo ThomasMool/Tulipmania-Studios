@@ -15,7 +15,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(27,27,47,0.8); /* semi-transparent over hero */
+  background: rgba(0,0,3,0.8); /* semi-transparent over hero */
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
