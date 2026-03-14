@@ -143,3 +143,46 @@ main {
     max-width: 90%;
   }
 }
+/* MOBILE DEVICES */
+@media (max-width: 768px) {
+  /* Make nav horizontal on top */
+  nav {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 15px;
+    justify-content: center;
+    box-shadow: none;
+    position: relative;
+  }
+
+  nav .nav-links {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  nav a {
+    margin: 0 15px;
+    font-size: 16px; /* smaller font on mobile */
+  }
+
+  /* Hero image smaller on mobile */
+  #hero {
+    height: 60vh; /* shorter height on small screens */
+  }
+
+  #hero img {
+    object-position: center top; /* focus on top of image */
+  }
+
+  /* Main content margins */
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  /* Gallery images smaller */
+  .about-gallery img, .portfolio-gallery img {
+    max-width: 90%;
+  }
+}
