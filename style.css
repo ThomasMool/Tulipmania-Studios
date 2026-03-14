@@ -83,7 +83,7 @@ nav a.active::after {
 nav a:hover, nav a.active {
   color: #ffedfe;
   transform: translateX(5px);
-  font-weight: bold;
+  font-weight: 700;
   width: 100%;
 }
 
