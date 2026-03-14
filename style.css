@@ -119,10 +119,6 @@ main {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.about-gallery img:hover, .portfolio-gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(255,111,97,0.6);
-}
 
 /* CONTACT LINKS */
 section#contact a {
