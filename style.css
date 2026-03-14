@@ -68,8 +68,15 @@ nav a::after {
   bottom: -4px;   /* distance below text */
   width: 0;
   height: 2px;
-  background: #ff6f61;  /* stripe color */
+  background: #ffedfe;  /* stripe color */
   transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+nav a.active::after {
+  width: 100%;
 }
 
 nav a:hover, nav a.active {
