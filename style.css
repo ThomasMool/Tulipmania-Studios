@@ -98,7 +98,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
-  z-index: 10;          /* stays above hero */
+  z-index: 0;          /* stays above hero */
 }
 
 /* HERO TEXT */
