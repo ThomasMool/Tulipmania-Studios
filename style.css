@@ -11,16 +11,16 @@ body {
 
 /* VERTICAL NAVIGATION */
 nav {
-  text-decoration: none; /* removes underline */
-  text-transform: uppercase;
-  width: 130px;
+  width: 180px;
   background: #1b1b2f; /* stylish dark-blue/purple */
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* stack items vertically */
+  justify-content: space-between; /* push links to bottom */
   padding: 50px 20px;
   height: 100vh;
   box-shadow: 2px 0 10px rgba(0,0,0,0.7);
   position: fixed;
+  text-decoration: none;
 }
 
 nav .nav-title {
@@ -28,18 +28,24 @@ nav .nav-title {
   font-weight: 700;
   color: #f2c94c;        /* same gold accent as nav links */
   text-transform: uppercase;  /* force all caps */
-  margin-bottom: 40px;   /* space below the title */
   letter-spacing: 2px;
   text-align: left;      /* align left in sidebar */
 }
+
+/* Wrap links in a container to push them to bottom */
+nav .nav-links {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto; /* pushes links toward bottom */
+}
+
 nav a {
   text-decoration: none; /* removes underline */
   text-transform: uppercase;
   color: #f6c54c; 
   font-size: 23px; /* larger nav links */
-  font-weight: 600; /* adjust boldness */
+  font-weight: bold; /* adjust boldness */
   letter-spacing: 1px;
-  font-weight: bold;
   margin-bottom: 25px;
   transition: all 0.3s ease;
 }
@@ -136,6 +142,10 @@ section#contact p a:hover {
     padding: 15px;
     box-shadow: none;
     justify-content: center;
+  }
+  nav .nav-links {
+    margin-top: 0; /* reset for horizontal nav */
+    flex-direction: row;
   }
   nav a {
     margin: 0 15px;
