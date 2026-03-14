@@ -12,6 +12,7 @@ body {
 /* VERTICAL NAVIGATION */
 nav {
   text-decoration: none; /* removes underline */
+  text-transform: uppercase;
   width: 130px;
   background: #1b1b2f; /* stylish dark-blue/purple */
   display: flex;
