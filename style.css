@@ -129,7 +129,7 @@ nav a:hover, nav a.active {
 
 .hero-text {
   font-family: 'Lexend Exa', sans-serif; /* <-- new font */
-  font-size: 15px; /* adjust size if needed */
+  font-size: 2em; /* adjust size if needed */
   position: absolute;
   top: 50%;
   left: 50%;
