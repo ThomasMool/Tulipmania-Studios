@@ -23,6 +23,15 @@ nav {
   position: fixed;
 }
 
+nav .nav-title {
+  font-size: 24px;       /* adjust as needed */
+  font-weight: 700;
+  color: #f2c94c;        /* same gold accent as nav links */
+  text-transform: uppercase;  /* force all caps */
+  margin-bottom: 40px;   /* space below the title */
+  letter-spacing: 2px;
+  text-align: left;      /* align left in sidebar */
+}
 nav a {
   text-decoration: none; /* removes underline */
   text-transform: uppercase;
