@@ -1,6 +1,6 @@
 /* GLOBAL STYLING */
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Roboto Slab', serif;
   margin: 0;
   padding: 0;
   background: #0a0a0a; /* dark background */
@@ -12,7 +12,7 @@ body {
 /* VERTICAL NAVIGATION */
 nav {
   text-decoration: none; /* removes underline */
-  width: 220px;
+  width: 130px;
   background: #1b1b2f; /* stylish dark-blue/purple */
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ nav a:hover, nav a.active {
 
 /* MAIN CONTENT */
 main {
-  margin-left: 220px;
+  margin-left: 280px;
   padding: 40px;
   flex: 1;
 }
