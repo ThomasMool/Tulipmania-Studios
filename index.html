@@ -23,7 +23,6 @@
 <section id="hero">
   <div class="hero-slide">
     <img src="images/image1.jpg" alt="Hero 1">
-    <img src="images/image2.jpg" alt="Hero 2">
     <img src="images/image3.jpg" alt="Hero 3">
   </div>
   <div class="hero-text">
@@ -35,6 +34,26 @@
 function toggleNav() {
   document.querySelector('.nav-links').classList.toggle('show');
 }
+</script>
+
+<script>
+const slides = document.querySelectorAll('.hero-slide img');
+let current = 0;
+const delay = 5000; // 5 seconds
+
+function showSlide(index) {
+  slides.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+showSlide(current);
+setInterval(nextSlide, delay);
 </script>
 </body>
 </html>
