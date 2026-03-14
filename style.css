@@ -15,11 +15,11 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,3,0.8); /* semi-transparent over hero */
+  background: rgba(27,27,47,0.8);
   display: flex;
   flex-direction: column;
-  padding: 20px 20px;  /* less top padding */
-  z-index: 10; /* above hero */
+  padding: 50px 20px;
+  z-index: 20;
   box-shadow: 2px 0 10px rgba(0,0,0,0.7);
 }
 
@@ -29,14 +29,22 @@ nav .nav-title {
   color: #fcf0e3;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 40px; /* space below title */
-  margin-top: 0;       /* bring it closer to top */
+  margin-bottom: 40px;
+  text-decoration: none;
+}
+
+nav .hamburger {
+  display: none;
+  font-size: 28px;
+  color: #fcf0e3;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 nav .nav-links {
   display: flex;
   flex-direction: column;
-  margin-top: 50px; /* move links down manually */
+  margin-top: 50px;
 }
 
 nav a {
@@ -55,45 +63,72 @@ nav a:hover, nav a.active {
   transform: translateX(5px);
 }
 
-/* HERO IMAGE FULL SCREEN */
+/* HERO IMAGE */
 #hero {
-  position: fixed;       /* fills entire viewport */
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 0;            /* behind nav */
+  position: relative;
+  z-index: 0;
 }
 
 #hero img {
   width: 100%;
   height: 100%;
-  object-fit: cover;     /* cover full screen */
+  object-fit: cover;
   object-position: center;
   display: block;
 }
 
-/* HERO TEXT */
 .hero-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5; /* above image but below nav */
   color: #fcf0e3;
   text-align: center;
+  z-index: 10;
 }
 
 .hero-text h2 {
-  font-size: 25px;
+  font-size: 2em;
   margin: 0;
 }
 
 /* MAIN CONTENT */
 main {
-  margin-left: 280px; /* leaves space for nav */
+  margin-left: 280px;
   padding: 20px;
+}
+
+/* GALLERIES */
+.about-gallery, .portfolio-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.about-gallery img, .portfolio-gallery img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-gallery img:hover, .portfolio-gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(255,111,97,0.6);
+}
+
+/* CONTACT LINKS */
+section#contact a {
+  color: #f2c94c;
+  text-decoration: none;
+}
+
+section#contact a:hover {
+  color: #ff6f61;
 }
 
 /* RESPONSIVE */
@@ -101,87 +136,35 @@ main {
   nav {
     width: 100%;
     height: auto;
-    flex-direction: row;
-    padding: 15px;
-    box-shadow: none;
-    justify-content: center;
-  }
-  nav .nav-links {
-    margin-top: 0;
-    flex-direction: row;
-  }
-  nav a {
-    margin: 0 15px;
-  }
-  main {
-    margin-left: 0;
-    padding: 20px;
-  }
-}
-/* IMAGE GALLERIES */
-.about-gallery, .portfolio-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 15px; /* spacing between images */
-}
-
-.about-gallery img, .portfolio-gallery img {
-  width: 100%;         /* fills container */
-  max-width: 300px;    /* prevents images from being too wide */
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-  transition: transform 0.3s, box-shadow 0.3s;
-  flex-shrink: 0;      /* prevents images from shrinking too much */
-}
-
-
-/* Optional: make images smaller on mobile */
-@media (max-width: 768px) {
-  .about-gallery img, .portfolio-gallery img {
-    max-width: 90%;
-  }
-}
-/* MOBILE DEVICES */
-@media (max-width: 768px) {
-  /* Make nav horizontal on top */
-  nav {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    padding: 15px;
-    justify-content: center;
+    flex-direction: column;
+    padding: 15px 20px;
     box-shadow: none;
     position: relative;
   }
 
+  nav .hamburger {
+    display: block;
+  }
+
   nav .nav-links {
-    flex-direction: row;
-    margin-top: 0;
+    display: none; /* hidden by default */
+    flex-direction: column;
+    margin-top: 10px;
   }
 
-  nav a {
-    margin: 0 15px;
-    font-size: 16px; /* smaller font on mobile */
+  nav .nav-links.show {
+    display: flex; /* show when clicked */
   }
 
-  /* Hero image smaller on mobile */
-  #hero {
-    height: 60vh; /* shorter height on small screens */
-  }
-
-  #hero img {
-    object-position: center top; /* focus on top of image */
-  }
-
-  /* Main content margins */
   main {
     margin-left: 0;
     padding: 20px;
   }
 
-  /* Gallery images smaller */
+  #hero {
+    height: 60vh; /* shorter on mobile */
+  }
+
   .about-gallery img, .portfolio-gallery img {
     max-width: 90%;
   }
