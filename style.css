@@ -128,6 +128,8 @@ nav a:hover, nav a.active {
 }
 
 .hero-text {
+  font-family: 'Lexend Exa', cursive; /* <-- new font */
+  font-size: 15px; /* adjust size if needed */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -135,8 +137,6 @@ nav a:hover, nav a.active {
   color: #fcf0e3;
   text-align: center;
   z-index: 10;
-  font-family: 'Lexend Exa', cursive; /* <-- new font */
-  font-size: 15px; /* adjust size if needed */
 }
 
 .hero-text h2 {
