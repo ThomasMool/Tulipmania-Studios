@@ -31,6 +31,9 @@ nav .nav-title {
   letter-spacing: 2px;
   margin-bottom: 40px;
   text-decoration: none;
+  display: block;
+  margin: 0 0 40px 0;
+}
 }
 
 nav .hamburger {
