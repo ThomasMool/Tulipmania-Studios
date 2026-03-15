@@ -144,7 +144,7 @@ nav a:hover, nav a.active {
   color: #fcf0e3;
   
   /* 2. Spacing and Horizontal Alignment */
-  letter-spacing: 0.8em;      /* Adjust this for more/less space between letters */
+  letter-spacing: 0.1em;      /* Adjust this for more/less space between letters */
   text-transform: uppercase;
   white-space: nowrap;        /* 3. Forces the text to stay on one single line */
   
