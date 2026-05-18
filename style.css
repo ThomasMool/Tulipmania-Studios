@@ -193,52 +193,74 @@ section#contact a:hover {
     height: auto;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;            /* Centers items vertically */
     padding: 15px 20px;
-    box-shadow: none;
-    position: relative;
+    box-sizing: border-box;         /* Prevents padding from causing overflow */
+    position: fixed;                /* Keep it fixed to the top of the phone screen */
+    background: rgba(0, 0, 0, 0.9); /* Slightly darker for legibility over images */
   }
 
   nav .hamburger {
-    display: block; /* visible on mobile */
+    display: block; /* Visible on mobile */
+    margin-bottom: 0; /* Reset desktop margin */
   }
 
   nav .nav-links {
-    display: none; /* hide by default */
+    display: none; 
     flex-direction: column;
     position: absolute;
-    top: 60px;       /* below the navbar */
+    top: 60px;       /* Spaced safely below the fixed navbar */
     right: 20px;
-    background: rgba(27,27,47,0.95);
-    padding: 15px 25px;
-    border-radius: 10px;
+    background: rgba(10, 10, 10, 0.95);
+    padding: 20px;
+    border-radius: 8px;
     z-index: 50;
     box-shadow: 0 5px 20px rgba(0,0,0,0.7);
     text-align: right;
+    width: 150px;    /* Gives the menu a clean dropdown width */
   }
 
   nav .nav-links.show {
-    display: flex; /* show when hamburger clicked */
+    display: flex; 
   }
 
   nav a {
-    font-size: 16px;  /* smaller font for mobile pop-up */
+    font-size: 16px;  
     margin-bottom: 15px;
+  }
+  
+  nav a:last-child {
+    margin-bottom: 0; /* Cleans up spacing on the last menu item */
   }
 
   nav .nav-title {
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 0; /* Reset desktop margin */
   }
 
+  /* HERO ADJUSTMENTS */
+  #hero {
+    height: 100vh; /* Keeps it full screen, or change to 70vh if you want it shorter */
+  }
+
+  .hero-text h2 {
+    font-size: 1.3em;       /* Scale down font size so it fits mobile screens */
+    white-space: normal;    /* CRITICAL: Allows text to break into rows */
+    line-height: 1.4;       /* Adds breathing room between the rows */
+    text-indent: 0;         /* Reset desktop centering offset */
+  }
+
+  /* MAIN CONTENT & GALLERIES */
   main {
     margin-left: 0;
-    padding: 20px;
+    padding: 80px 20px 20px 20px; /* 80px top padding prevents content from hiding under navbar */
   }
 
-  #hero {
-    height: 60vh; /* shorter on mobile */
+  .about-gallery, .portfolio-gallery {
+    justify-content: center; /* Centers images on mobile screens */
   }
 
   .about-gallery img, .portfolio-gallery img {
-    max-width: 90%;
+    max-width: 100%; /* Allows images to dynamically fill smaller phone widths */
   }
 }
