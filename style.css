@@ -250,6 +250,26 @@ body.about-page main {
     box-sizing: border-box;         /* Prevents padding from causing overflow */
     position: fixed;                /* Keep it fixed to the top of the phone screen */
     background: rgba(0, 0, 0, 0.9); /* Slightly darker for legibility over images */
+    /* Inside your existing mobile media query at the bottom of the CSS file */
+  .about-text-panel {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 40px 20px;
+    transform: none;
+    animation: none;
+    background: #0a0a0a;
+    box-sizing: border-box;
+  }
+  
+  main {
+    padding: 60px 0 0 0 !important; /* Resets desktop margin spacing */
+  }
+  
+  #hero {
+    position: relative; /* Allows text panel to stack naturally underneath the picture */
+    height: 50vh;
   }
 
   nav .hamburger {
