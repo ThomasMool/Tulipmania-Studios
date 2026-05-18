@@ -129,8 +129,8 @@ nav a:hover, nav a.active {
 }
 
 .shift-right {
-  position: relative;
-  left: 0px; /* This physically nudges the image 30px over to the right */
+  position: static;
+  /*left: 0px; /* This physically nudges the image 30px over to the right */
 }
 
 .hero-text {
