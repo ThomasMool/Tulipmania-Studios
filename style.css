@@ -129,7 +129,8 @@ nav a:hover, nav a.active {
 }
 
 .shift-right {
-  margin-left: 30px; /* Adjust this number to push it more or less */
+  position: relative;
+  left: 30px; /* This physically nudges the image 30px over to the right */
 }
 
 .hero-text {
