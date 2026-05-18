@@ -191,6 +191,53 @@ section#contact a:hover {
   color: #ff6f61;
 }
 
+/* ABOUT TEXT PANEL (DESKTOP) */
+.about-text-panel {
+  position: fixed;
+  top: 0;
+  left: 200px; /* Positions it exactly where the 200px nav bar ends */
+  width: 350px; /* Width of your new text panel */
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.95); /* Dark background matching your theme */
+  box-sizing: border-box;
+  padding: 80px 40px;
+  z-index: 10; /* Sits behind the main nav (z-index: 20) but above the hero image */
+  border-right: 1px solid rgba(255, 237, 254, 0.1); /* Subtle decorative border */
+  
+  /* Slide-out Animation Mechanics */
+  transform: translateX(-100%); /* Starts hidden tucked behind the nav panel */
+  animation: slideOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.2s; /* Tiny pause before it slides out */
+}
+
+.about-text-panel h2 {
+  font-family: 'Lexend Exa', sans-serif;
+  color: #fcf0e3;
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.about-text-panel p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #cccccc;
+  margin-bottom: 20px;
+}
+
+/* The math for the slide out motion */
+@keyframes slideOut {
+  to {
+    transform: translateX(0); /* Slides out to its natural position next to nav */
+  }
+}
+
+/* Adjust the main content area so it isn't covered by the new panel */
+body.about-page main {
+  margin-left: 550px; /* 200px nav + 350px text panel */
+}
+
 /* RESPONSIVE: MOBILE */
 @media (max-width: 768px) {
   nav {
