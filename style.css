@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
 /* GLOBAL RESET */
 html, body {
   margin: 0;
@@ -9,19 +10,20 @@ html, body {
   color: #e6e6e6;
 }
 
-/* NAVIGATION */
+/* NAVIGATION (LAYER 30 - Always on top) */
 nav {
   width: 200px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.85); /* Slightly darker for distinct panel look */
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
-  z-index: 20;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.7);
+  z-index: 30; 
+  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+  box-sizing: border-box;
 }
 
 nav .nav-title {
@@ -35,13 +37,12 @@ nav .nav-title {
 }
 
 nav .hamburger {
-  display: none; /* desktop hidden */
+  display: none;
   font-size: 28px;
   color: #fcf0e3;
   cursor: pointer;
   margin-bottom: 20px;
 }
-
 
 nav .nav-links {
   display: flex;
@@ -66,20 +67,17 @@ nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;   /* distance below text */
+  bottom: -4px;
   width: 0;
   height: 2px;
-  background: #ffedfe;  /* stripe color */
+  background: #ffedfe;
   transition: width 0.3s ease;
 }
 
-nav a:hover::after {
+nav a:hover::after, nav a.active::after {
   width: 100%;
 }
 
-nav a.active::after {
-  width: 100%;
-}
 nav a:hover, nav a.active {
   color: #ffedfe;
   transform: translateX(5px);
@@ -87,7 +85,7 @@ nav a:hover, nav a.active {
   width: 100%;
 }
 
-/* HERO IMAGE */
+/* BACKGROUND HERO IMAGE (LAYER 10 - Sits at the bottom) */
 #hero {
   position: fixed;
   top: 0;
@@ -95,29 +93,7 @@ nav a:hover, nav a.active {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 0;
-}
-
-.hero-slide {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-slide img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out; /* smooth fade */
-}
-
-.hero-slide img.active {
-  opacity: 1;
+  z-index: 10; 
 }
 
 #hero img {
@@ -128,86 +104,28 @@ nav a:hover, nav a.active {
   display: block;
 }
 
+/* PICTURE MOVEMENT RESET */
 .shift-right {
-  position: static;
-  /*left: 0px; /* This physically nudges the image 30px over to the right */
+  position: static; /* Restores the picture exactly to its default, native location */
 }
 
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 10;
-  width: 90%; 
-  max-width: 1200px;
-}
-.hero-text h2 {
-  font-family: 'Lexend Exa', sans-serif;
-  font-size: 2em; /* Scalable size */
-  color: #fcf0e3;
-  
-  /* 2. Spacing and Horizontal Alignment */
-  letter-spacing: 0.1em;      /* Adjust this for more/less space between letters */
-  text-transform: uppercase;
-  white-space: nowrap;        /* 3. Forces the text to stay on one single line */
-  
-  /* 4. Remove all default indents/margins */
-  margin: 0;
-  padding: 0;
-  text-indent: 0.8em;         /* 5. Pro-tip: Offset the last letter's spacing to keep it perfectly centered */
-}
-
-/* MAIN CONTENT */
-main {
-  margin-left: 280px;
-  padding: 20px;
-}
-
-/* GALLERIES */
-.about-gallery, .portfolio-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.about-gallery img, .portfolio-gallery img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-
-/* CONTACT LINKS */
-section#contact a {
-  color: #f2c94c;
-  text-decoration: none;
-}
-
-section#contact a:hover {
-  color: #ff6f61;
-}
-
-/* ABOUT TEXT PANEL (DESKTOP) */
+/* SLIDE-OUT TEXT PANEL (LAYER 20 - Cuts in front of the picture, behind the nav) */
 .about-text-panel {
   position: fixed;
   top: 0;
-  left: 200px; /* Positions it exactly where the 200px nav bar ends */
-  width: 350px; /* Width of your new text panel */
+  left: 200px; /* Aligns right along the edge of the navigation panel */
+  width: 380px; 
   height: 100vh;
-  background: rgba(15, 15, 15, 0.95); /* Dark background matching your theme */
+  background: rgba(15, 15, 15, 0.95); 
   box-sizing: border-box;
   padding: 80px 40px;
-  z-index: 10; /* Sits behind the main nav (z-index: 20) but above the hero image */
-  border-right: 1px solid rgba(255, 237, 254, 0.1); /* Subtle decorative border */
+  z-index: 20; 
+  border-right: 1px solid rgba(255, 237, 254, 0.1);
   
-  /* Slide-out Animation Mechanics */
-  transform: translateX(-100%); /* Starts hidden tucked behind the nav panel */
+  /* Smooth Slide-out Motion */
+  transform: translateX(-100%); 
   animation: slideOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  animation-delay: 0.2s; /* Tiny pause before it slides out */
+  animation-delay: 0.1s;
 }
 
 .about-text-panel h2 {
@@ -226,33 +144,55 @@ section#contact a:hover {
   margin-bottom: 20px;
 }
 
-/* The math for the slide out motion */
 @keyframes slideOut {
   to {
-    transform: translateX(0); /* Slides out to its natural position next to nav */
+    transform: translateX(0); /* Reveals the panel by sliding it to the right */
   }
 }
 
-/* Adjust the main content area so it isn't covered by the new panel */
-body.about-page main {
-  margin-left: 550px; /* 200px nav + 350px text panel */
+/* MAIN CONTENT DESKTOP SPACING */
+main {
+  margin-left: 280px;
+  padding: 20px;
 }
 
-/* RESPONSIVE: MOBILE */
+/* GALLERIES & CONTACT */
+.about-gallery, .portfolio-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.about-gallery img, .portfolio-gallery img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section#contact a {
+  color: #f2c94c;
+  text-decoration: none;
+}
+
+section#contact a:hover {
+  color: #ff6f61;
+}
+
+/* RESPONSIVE: MOBILE SHOP */
 @media (max-width: 768px) {
   nav {
     width: 100%;
     height: auto;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;            /* Centers items vertically */
+    align-items: center;
     padding: 15px 20px;
-    box-sizing: border-box;         /* Prevents padding from causing overflow */
-    position: fixed;                /* Keep it fixed to the top of the phone screen */
-    background: rgba(0, 0, 0, 0.9); /* Slightly darker for legibility over images */
+    position: fixed;
+    background: rgba(0, 0, 0, 0.9);
   }
 
-  /* This is now safely outside of the nav block! */
   .about-text-panel {
     position: relative;
     left: 0;
@@ -263,36 +203,35 @@ body.about-page main {
     transform: none;
     animation: none;
     background: #0a0a0a;
-    box-sizing: border-box;
+    z-index: 40; /* Brings text above layout variables on small screens */
   }
   
   main {
-    padding: 60px 0 0 0 !important; /* Resets desktop margin spacing */
+    padding: 60px 0 0 0 !important;
+    margin-left: 0;
   }
   
   #hero {
-    position: relative; /* Allows text panel to stack naturally underneath the picture */
+    position: relative;
     height: 50vh;
   }
 
   nav .hamburger {
-    display: block; /* Visible on mobile */
-    margin-bottom: 0; /* Reset desktop margin */
+    display: block;
+    margin-bottom: 0;
   }
 
   nav .nav-links {
     display: none; 
     flex-direction: column;
     position: absolute;
-    top: 60px;       /* Spaced safely below the fixed navbar */
+    top: 60px;
     right: 20px;
     background: rgba(10, 10, 10, 0.95);
     padding: 20px;
     border-radius: 8px;
     z-index: 50;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.7);
-    text-align: right;
-    width: 150px;    /* Gives the menu a clean dropdown width */
+    width: 150px;
   }
 
   nav .nav-links.show {
@@ -300,42 +239,23 @@ body.about-page main {
   }
 
   nav a {
-    font-size: 16px;  
+    font-size: 16px;
     margin-bottom: 15px;
   }
   
   nav a:last-child {
-    margin-bottom: 0; /* Cleans up spacing on the last menu item */
+    margin-bottom: 0;
   }
 
   nav .nav-title {
     font-size: 18px;
-    margin-bottom: 0; /* Reset desktop margin */
-  }
-
-  /* HERO ADJUSTMENTS */
-  #hero {
-    height: 100vh; /* Keeps it full screen, or change to 70vh if you want it shorter */
+    margin-bottom: 0;
   }
 
   .hero-text h2 {
-    font-size: 1.3em;       /* Scale down font size so it fits mobile screens */
-    white-space: normal;    /* CRITICAL: Allows text to break into rows */
-    line-height: 1.4;       /* Adds breathing room between the rows */
-    text-indent: 0;         /* Reset desktop centering offset */
-  }
-
-  /* MAIN CONTENT & GALLERIES */
-  main {
-    margin-left: 0;
-    padding: 80px 20px 20px 20px; /* 80px top padding prevents content from hiding under navbar */
-  }
-
-  .about-gallery, .portfolio-gallery {
-    justify-content: center; /* Centers images on mobile screens */
-  }
-
-  .about-gallery img, .portfolio-gallery img {
-    max-width: 100%; /* Allows images to dynamically fill smaller phone widths */
+    font-size: 1.3em;
+    white-space: normal;
+    line-height: 1.4;
+    text-indent: 0;
   }
 }
