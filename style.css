@@ -115,9 +115,9 @@ nav a:hover, nav a.active {
   opacity: 1;
 }
 
-/* HERO TEXT OVERLAY (LAYER 15 - Above background slides, below panel interfaces) */
+/* HERO TEXT OVERLAY (LAYER 9999 - Forced to sit above fixed background stack) */
 .hero-text {
-  position: absolute;
+  position: fixed; 
   top: 50%;
   left: calc(50% + 100px); /* Offsets the center by exactly half the nav's width */
   transform: translate(-50%, -50%);
@@ -126,16 +126,18 @@ nav a:hover, nav a.active {
   width: calc(100% - 240px);
   box-sizing: border-box;
   padding: 0 20px;
+  pointer-events: none; /* Allows user to click things behind text if needed */
 }
 
 .hero-text h2 {
   font-family: 'Lexend Exa', sans-serif;
-  color: #fcf0e3;
+  color: #fcf0e3 !important;
   font-size: 2.8rem;
   line-height: 1.4;
   margin: 0;
   letter-spacing: 1px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Guarantees high text legibility over imagery */
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); /* Guarantees readability over dark or light images */
+  display: block;
 }
 
 /* PICTURE MOVEMENT RESET */
@@ -246,12 +248,14 @@ section#contact a:hover {
   
   #hero {
     position: relative;
-    height: 100vh; /* Keeps hero layout fullscreen on mobile */
+    height: 100vh;
   }
 
-  /* Corrects mobile screen position offset for hero text container */
+  /* Corrects mobile screen position offset for hero fixed container */
   .hero-text {
+    position: fixed;
     left: 50%;
+    top: 50%;
     width: 100%;
     padding: 0 24px;
   }
