@@ -301,6 +301,7 @@ section#contact a:hover {
     padding: 15px 20px;
     position: fixed;
     background: rgba(0,0,0,0.9);
+    z-index: 100;
   }
 
   /* FORCE HIDE LOGO CONTAINER ON MOBILE FLOATING TOP-BAR */
