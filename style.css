@@ -277,23 +277,6 @@ main.portfolio-page-layout {
   transform: translate(-50%, -50%); /* Drops text smoothly into center position */
 }
 
-/* PLAY OVERLAY DESIGN */
-.featured-video-hero .play-overlay-hint {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  background: rgba(10, 10, 10, 0.75);
-  padding: 8px 16px;
-  font-family: 'Lexend Exa', sans-serif;
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: #ffedfe;
-  border-radius: 4px;
-  border: 1px solid rgba(255, 237, 254, 0.2);
-  z-index: 4;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
 /* MICRO INTERACTION ANIMATIONS */
 .featured-video-hero:hover {
   transform: translateY(-4px); 
@@ -302,11 +285,6 @@ main.portfolio-page-layout {
 
 .featured-video-hero:hover img {
   transform: scale(1.02); 
-}
-
-.featured-video-hero:hover .play-overlay-hint {
-  background: #ffedfe;
-  color: #0a0a0a;
 }
 
 /* ABOUT PANEL (Sits at mid-layer depth) */
@@ -336,7 +314,7 @@ main.portfolio-page-layout {
 }
 
 .about-text-panel p {
-  font-size: 19px;
+  font-size: 15px;
   line-height: 1.8;
   color: #cccccc;
   margin-bottom: 20px;
