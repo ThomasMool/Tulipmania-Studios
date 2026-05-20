@@ -4,15 +4,25 @@
   <meta charset="UTF-8">
   <title>Portfolio - Tulipmania Studios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
+<!-- NAVIGATION -->
 <nav>
   <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
-  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+
+  <div class="hamburger" onclick="toggleNav()">
+    &#9776;
+  </div>
+
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="portfolio.html" class="active">Portfolio</a>
@@ -21,24 +31,32 @@
   </div>
 </nav>
 
+<!-- MAIN CONTENT -->
 <main class="inner-page">
-  <section id="hero">
-    <img src="images/image3.jpg" alt="Hero Image">
-    <div class="hero-text">
-      <h2></h2>
-    </div>
+
+  <!-- SMALL PORTFOLIO IMAGE -->
+  <section class="portfolio-banner">
+    <img src="images/image3.jpg" alt="Portfolio Image">
   </section>
-  
-  <!-- Grid content section -->
+
+  <!-- GALLERY -->
   <section class="portfolio-gallery">
-    <!-- Your showcase items go here -->
+
+    <img src="images/image1.jpg" alt="Work 1">
+    <img src="images/image2.jpg" alt="Work 2">
+    <img src="images/image3.jpg" alt="Work 3">
+    <img src="images/image4.jpg" alt="Work 4">
+
   </section>
+
 </main>
 
+<!-- MOBILE NAV SCRIPT -->
 <script>
 function toggleNav() {
   document.querySelector('.nav-links').classList.toggle('show');
 }
 </script>
+
 </body>
 </html>
