@@ -121,7 +121,7 @@ nav a:hover, nav a.active {
   top: 50%;
   left: calc(50% + 100px); /* Offsets the center by exactly half the nav's width */
   transform: translate(-50%, -50%);
-  z-index: 15;
+  z-index: 9999;
   text-align: center;
   width: calc(100% - 240px);
   box-sizing: border-box;
