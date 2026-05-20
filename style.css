@@ -90,10 +90,10 @@ nav a.active {
 /* SIDEBAR LOGO POSITIONING */
 .nav-logo {
   position: absolute;
-  bottom: 40px;
+  bottom: 24px;
   left: 24px;   
   width: calc(100% - 48px); /* Adjusted layout math for the new padding widths */
-  text-align: center;
+  text-align: left;
   pointer-events: none;
 }
 
