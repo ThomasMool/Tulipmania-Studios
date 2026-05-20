@@ -197,6 +197,23 @@ nav:hover .nav-logo img {
   margin-bottom: 20px;
 }
 
+/* UNDERLINE EFFECT FOR ABOUT PAGE TITLE */
+.about-text-panel h2.underline-accent {
+  position: relative;
+  display: inline-block; /* Keeps the underline exactly the width of the words */
+  margin-bottom: 40px;   /* Added a tiny bit of breathing room for the line */
+}
+
+.about-text-panel h2.underline-accent::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;          /* Places the line just underneath the letters */
+  width: 100%;           /* Keeps it permanently visible, unlike the nav hover */
+  height: 2px;
+  background: #ffedfe;   /* Uses your exact signature navigation pink/white color */
+}
+
 @keyframes slideOut {
   to {
     transform: translateX(0);
