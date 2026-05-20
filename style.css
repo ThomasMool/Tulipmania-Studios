@@ -99,7 +99,7 @@ nav a.active {
 
 .nav-logo img {
   width: 100%;
-  max-width: 120px; /* Caps the logo size so it stays proportional inside the sidebar */
+  max-width: 60px; /* Caps the logo size so it stays proportional inside the sidebar */
   height: auto;
   object-fit: contain;
   display: inline-block;
