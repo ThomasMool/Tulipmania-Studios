@@ -17,7 +17,7 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.85); /* Slightly darker for distinct panel look */
+  background: rgba(0,0,0,0.85); 
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
@@ -85,7 +85,7 @@ nav a:hover, nav a.active {
   width: 100%;
 }
 
-/* BACKGROUND HERO IMAGE & SLIDESHOW */
+/* BACKGROUND INDEX HERO IMAGE & SLIDESHOW */
 #hero {
   position: fixed;
   top: 0;
@@ -96,7 +96,6 @@ nav a:hover, nav a.active {
   z-index: 10; 
 }
 
-/* Stacks pictures precisely layered on top of each other */
 #hero .hero-slide img {
   position: absolute;
   top: 0;
@@ -106,27 +105,26 @@ nav a:hover, nav a.active {
   object-fit: cover;
   object-position: center;
   display: block;
-  opacity: 0; /* Hidden by default */
-  transition: opacity 1.2s ease-in-out; /* Smooth transition when fading */
+  opacity: 0; 
+  transition: opacity 1.2s ease-in-out; 
 }
 
-/* Triggers when JavaScript updates class to active */
 #hero .hero-slide img.active {
   opacity: 1;
 }
 
-/* HERO TEXT OVERLAY (LAYER 9999 - Forced to sit above fixed background stack) */
+/* HERO TEXT OVERLAY (Index Version) */
 .hero-text {
   position: fixed; 
   top: 50%;
-  left: calc(50% + 100px); /* Offsets the center by exactly half the nav's width */
+  left: calc(50% + 100px); 
   transform: translate(-50%, -50%);
   z-index: 9999;
   text-align: center;
   width: calc(100% - 240px);
   box-sizing: border-box;
   padding: 0 20px;
-  pointer-events: none; /* Allows user to click things behind text if needed */
+  pointer-events: none; 
 }
 
 .hero-text h2 {
@@ -136,7 +134,7 @@ nav a:hover, nav a.active {
   line-height: 1.4;
   margin: 0;
   letter-spacing: 1px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); /* Guarantees readability over dark or light images */
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); 
   display: block;
 }
 
@@ -185,10 +183,43 @@ nav a:hover, nav a.active {
   }
 }
 
-/* MAIN CONTENT DESKTOP SPACING */
+/* STANDARD WORKSPACE DESKTOP SPACING */
 main {
-  margin-left: 200px; /* Synchronized with navigation width */
+  margin-left: 200px; 
   height: 100vh;
+}
+
+/* FIX FOR INNER SUB-PAGES (Portfolio, About, etc.) */
+main.inner-page {
+  margin-left: 200px; 
+  padding: 40px;
+  box-sizing: border-box;
+  height: auto; 
+}
+
+main.inner-page #hero {
+  position: relative; 
+  width: 100%;
+  height: 45vh; 
+  max-height: 400px;
+  border-radius: 12px; 
+  margin-bottom: 40px;
+}
+
+main.inner-page #hero img {
+  position: relative;
+  opacity: 1; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+main.inner-page .hero-text {
+  position: absolute; 
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
 }
 
 /* GALLERIES & CONTACT */
@@ -246,18 +277,31 @@ section#contact a:hover {
     margin-left: 0;
   }
   
+  main.inner-page {
+    margin-left: 0;
+    padding: 20px;
+    padding-top: 80px; 
+  }
+  
   #hero {
     position: relative;
     height: 100vh;
   }
 
-  /* Corrects mobile screen position offset for hero fixed container */
+  main.inner-page #hero {
+    height: 30vh; 
+  }
+
   .hero-text {
     position: fixed;
     left: 50%;
     top: 50%;
     width: 100%;
     padding: 0 24px;
+  }
+
+  main.inner-page .hero-text {
+    position: absolute;
   }
 
   .hero-text h2 {
