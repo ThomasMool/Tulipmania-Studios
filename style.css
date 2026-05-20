@@ -178,7 +178,7 @@ nav:hover .nav-logo img {
   height: 100vh;
   background: rgba(30, 30, 30, 0.92);
   box-sizing: border-box;
-  padding: 20px 40px 80px 40px;
+  padding: 40px 40px 80px 20px;
   z-index: 20;
   border-right: 1px solid rgba(255,237,254,0.1);
   transform: translateX(-100%);
@@ -206,7 +206,7 @@ nav:hover .nav-logo img {
 .about-text-panel h2.underline-accent {
   position: relative;
   display: inline-block; /* Keeps the underline exactly the width of the words */
-  margin-bottom: 40px;   /* Added a tiny bit of breathing room for the line */
+  margin-bottom: 20px;   /* Added a tiny bit of breathing room for the line */
 }
 
 .about-text-panel h2.underline-accent::after {
