@@ -151,7 +151,7 @@ nav:hover .nav-logo img {
   
   /* CHANGED HERE */
   width: 90%;             /* Allows fluid shrinking on smaller windows */
-  max-width: 700px;       /* Prevents the text lines from stretching out too wide */
+  max-width: 1100px;       /* Prevents the text lines from stretching out too wide */
   
   box-sizing: border-box;
   padding: 0 20px;
@@ -161,7 +161,7 @@ nav:hover .nav-logo img {
 .hero-text h2 {
   font-family: 'Lexend Exa', sans-serif;
   color: #fcf0e3;
-  font-size: 2.8rem;
+  font-size: 1.9rem;
   line-height: 1.4;
   margin: 0;
   letter-spacing: 1px;
