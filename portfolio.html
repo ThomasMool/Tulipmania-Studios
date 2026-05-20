@@ -36,21 +36,29 @@
   </div>
 </nav>
 
-<!-- FULL SCREEN BACKGROUND IMAGE LAYER -->
-<!-- Snaps edge-to-edge behind everything via position: fixed -->
+<!-- FULL SCREEN BACKGROUND IMAGE LAYER (Sits behind everything) -->
 <section id="hero">
   <div class="hero-slide">
     <img src="images/image3.jpg" alt="Portfolio Background" style="opacity: 1;">
   </div>
 </section>
 
-<!-- MAIN CONTENT LAYER LAYER -->
+<!-- MAIN CONTENT WORKSPACE (Forced forward via z-index) -->
 <main class="portfolio-page-layout">
+  
   <!-- TOP THIRD FEATURED CARD -->
   <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="featured-video-hero">
     <img src="images/image5.png" alt="Featured Project - Watch on YouTube">
+    
+    <!-- Hover Text Overlay Content -->
+    <div class="hero-hover-content">
+      <h3>PROJECT TITLE</h3>
+      <p>Cinematography & Creative Direction</p>
+    </div>
+
     <div class="play-overlay-hint">WATCH FILM</div>
   </a>
+
 </main>
 
 <!-- MOBILE NAV SCRIPT -->
