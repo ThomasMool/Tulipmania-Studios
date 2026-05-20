@@ -99,7 +99,7 @@ nav a.active {
 
 .nav-logo img {
   width: 100%;
-  max-width: 30px; 
+  max-width: 60px; /* Reduced from 120px to keep the logo crisp and understated */
   height: auto;
   object-fit: contain;
   display: inline-block;
@@ -303,8 +303,9 @@ section#contact a:hover {
     background: rgba(0,0,0,0.9);
   }
 
+  /* FORCE HIDE LOGO CONTAINER ON MOBILE FLOATING TOP-BAR */
   .nav-logo {
-    display: none;
+    display: none !important;
   }
 
   .about-text-panel {
