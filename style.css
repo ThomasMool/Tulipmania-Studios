@@ -211,13 +211,19 @@ main.portfolio-page-layout {
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
 }
 
+/* THE FEATURED IMAGE ASSET DESIGN */
 .featured-video-hero img {
   width: 100% !important;
   height: 100% !important;
   display: block !important;
   object-fit: cover;
-  object-position: center;
-  transform: scale(0.92);
+  
+  /* Pulls the camera framing back inside the box to reveal more content safely */
+  transform: scale(1.15); 
+  
+  /* Controls centering alignment. Tweak to 'top center' or 'bottom center' if needed */
+  object-position: center; 
+  
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -272,21 +278,20 @@ main.portfolio-page-layout {
 }
 
 /* Hover state transitions */
-.featured-video-hero:hover .hero-hover-content {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%); /* Drops text smoothly into center position */
-}
-
-/* MICRO INTERACTION ANIMATIONS */
 .featured-video-hero:hover {
   transform: translateY(-4px); 
-  transform: scale(0.96);
   box-shadow: 0 30px 60px rgba(255, 237, 254, 0.15); 
 }
 
 .featured-video-hero:hover img {
-  transform: scale(1.02); 
+  /* Dynamic micro-zoom scaling relative to our new view base */
+  transform: scale(1.22); 
+}
+
+.featured-video-hero:hover .hero-hover-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%); /* Drops text smoothly into center position */
 }
 
 /* ABOUT PANEL (Sits at mid-layer depth) */
