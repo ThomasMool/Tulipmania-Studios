@@ -142,13 +142,18 @@ nav:hover .nav-logo img {
 
 /* HERO TEXT OVERLAY (Index) */
 .hero-text {
+.hero-text {
   position: fixed;
   top: 50%;
-  left: calc(50% + 120px); /* Adjusted math: Centers text in the remaining screen space (half of 240px is 120px) */
+  left: calc(50% + 120px); /* Keeps text centered in the space next to the 240px nav */
   transform: translate(-50%, -50%);
   z-index: 9999;
   text-align: center;
-  width: calc(100% - 280px); /* Keeps text from bumping right against edges */
+  
+  /* CHANGED HERE */
+  width: 90%;             /* Allows fluid shrinking on smaller windows */
+  max-width: 700px;       /* Prevents the text lines from stretching out too wide */
+  
   box-sizing: border-box;
   padding: 0 20px;
   pointer-events: none;
