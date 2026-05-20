@@ -87,7 +87,7 @@ nav a.active {
   font-weight: 700;
 }
 
-/* HERO SECTION */
+/* GLOBAL HERO SECTION DEFAULTS (Used on Index) */
 #hero {
   position: fixed;
   top: 0;
@@ -98,21 +98,17 @@ nav a.active {
   z-index: 10;
 }
 
-/* HERO SLIDESHOW */
+/* HERO SLIDESHOW (Index) */
 #hero .hero-slide img {
   position: absolute;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center;
-
   display: block;
   opacity: 0;
-
   transition: opacity 1.2s ease-in-out;
 }
 
@@ -120,7 +116,7 @@ nav a.active {
   opacity: 1;
 }
 
-/* HERO TEXT */
+/* HERO TEXT OVERLAY (Index) */
 .hero-text {
   position: fixed;
   top: 50%;
@@ -156,7 +152,6 @@ nav a.active {
   padding: 80px 40px;
   z-index: 20;
   border-right: 1px solid rgba(255,237,254,0.1);
-
   transform: translateX(-100%);
   animation: slideOut 0.8s cubic-bezier(0.25,1,0.5,1) forwards;
   animation-delay: 0.1s;
@@ -184,13 +179,13 @@ nav a.active {
   }
 }
 
-/* MAIN */
+/* DEFAULT MAIN CONTAINER */
 main {
   margin-left: 200px;
   height: 100vh;
 }
 
-/* INNER PAGES */
+/* INNER PAGES CONTAINER WORKSPACE */
 main.inner-page {
   margin-left: 200px;
   padding: 40px;
@@ -198,39 +193,38 @@ main.inner-page {
   height: auto;
 }
 
-/* FIXED INNER HERO */
-main.inner-page #hero {
+/* FIXED SUB-PAGE HERO BANNER OVERRIDES */
+/* Combined both old structure and new .portfolio-banner class rules here */
+body main.inner-page #hero,
+body main.inner-page .portfolio-banner {
   position: relative;
+  top: auto;
+  left: auto;
   width: 100%;
-  height: auto;
-  max-height: none;
+  height: 380px; 
+  max-height: 380px;
+  overflow: hidden;
   border-radius: 12px;
   margin-bottom: 40px;
-  text-align: center;
-  overflow: visible;
-  background: transparent;
 }
 
-/* FIXED IMAGE */
-main.inner-page #hero img {
-  position: relative;
-  opacity: 1;
-
-  width: auto;
-  max-width: 700px;
-
-  height: auto;
-
-  object-fit: contain;
-
+/* FIXED SUB-PAGE HERO BANNER IMAGE */
+body main.inner-page #hero img,
+body main.inner-page .portfolio-banner img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops the photo natively into the banner box shape */
+  opacity: 1 !important; 
   display: block;
-  margin: 0 auto;
-
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.7);
 }
 
-/* INNER HERO TEXT */
+/* INNER HERO TEXT OVERLAY STYLE */
 main.inner-page .hero-text {
   position: absolute;
   left: 50%;
@@ -244,7 +238,7 @@ main.inner-page .hero-text {
 .portfolio-gallery {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 20px; /* Enhanced separation grid whitespace */
 }
 
 /* GALLERY IMAGES */
@@ -252,12 +246,9 @@ main.inner-page .hero-text {
 .portfolio-gallery img {
   width: 250px;
   height: 180px;
-
-  object-fit: contain;
-
+  object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -276,9 +267,8 @@ section#contact a:hover {
   color: #ff6f61;
 }
 
-/* MOBILE */
+/* MOBILE RESPONSIVE LAYOUT */
 @media (max-width: 768px) {
-
   nav {
     width: 100%;
     height: auto;
@@ -316,7 +306,13 @@ section#contact a:hover {
 
   #hero {
     position: relative;
-    height: auto;
+    height: 100vh;
+  }
+
+  /* Shrinks the hero banner layouts down for mobile phones */
+  body main.inner-page #hero,
+  body main.inner-page .portfolio-banner {
+    height: 220px;
   }
 
   .hero-text {
@@ -371,11 +367,6 @@ section#contact a:hover {
   nav .nav-title {
     font-size: 18px;
     margin-bottom: 0;
-  }
-
-  /* MOBILE IMAGE FIX */
-  main.inner-page #hero img {
-    max-width: 100%;
   }
 
   .about-gallery img,
