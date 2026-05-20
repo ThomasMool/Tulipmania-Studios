@@ -171,7 +171,7 @@ nav:hover .nav-logo img {
   left: 240px; /* Snaps perfectly against the widened 240px sidebar */
   width: 380px;
   height: 100vh;
-  background: rgba(15,15,15,0.95);
+  background: rgba(30, 30, 30, 0.92);
   box-sizing: border-box;
   padding: 80px 40px;
   z-index: 20;
@@ -332,11 +332,12 @@ section#contact a:hover {
     top: 0;
     width: 100%;
     height: auto;
-    padding: 40px 20px;
+    padding: 90px 20px 40px 20px; /* CHANGED: Increased top padding from 40px to 90px */
     transform: none;
     animation: none;
-    background: #0a0a0a;
+    background: rgba(30, 30, 30, 0.92);
     z-index: 40;
+    box-sizing: border-box; /* Ensures the padding behaves perfectly within the width */
   }
 
   main {
