@@ -4,12 +4,17 @@
   <meta charset="UTF-8">
   <title>About Us - Tulipmania Studios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="about-page">
 
+<!-- NAVIGATION -->
 <nav>
   <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
   <div class="hamburger" onclick="toggleNav()">&#9776;</div>
@@ -21,17 +26,22 @@
   </div> 
 </nav>
 
+<!-- TEXT OVERLAY PANEL -->
+<!-- Kept exactly intact; your CSS handles the slide-in animation over the background -->
 <div class="about-text-panel">
   <h2>Our Story</h2>
   <p>Tulipmania Studios is a collective of filmmakers maniacally passionate about the art of visual storytelling. We bring raw emotion and cinematic precision to every frame.</p>
 </div>
   
-<main class="inner-page">
-  <section id="hero">
-    <img src="images/image2.jpg" alt="About us picture" class="shift-right">
-  </section>
-</main>
+<!-- FULL SCREEN BACKGROUND IMAGE LAYER -->
+<!-- Placed globally to stretch edge-to-edge, behind the navigation and text panel -->
+<section id="hero">
+  <div class="hero-slide">
+    <img src="images/image2.jpg" alt="About us background picture" style="opacity: 1;">
+  </div>
+</section>
 
+<!-- MOBILE NAV SCRIPT -->
 <script>
 function toggleNav() {
   document.querySelector('.nav-links').classList.toggle('show');
