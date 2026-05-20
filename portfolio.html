@@ -2,61 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio - Tulipmania Studios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+  <style>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
+    body {
+      margin: 0;
+      background: #111;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    /* NAVIGATION */
+    nav {
+      width: 200px;
+      height: 100vh;
+      background: black;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    /* PAGE CONTENT */
+    main {
+      margin-left: 220px;
+      padding: 40px;
+    }
+
+    /* SMALL TOP IMAGE */
+    .portfolio-banner img {
+      width: 300px;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      margin-bottom: 40px;
+    }
+
+    /* GALLERY */
+    .portfolio-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* SMALL GALLERY IMAGES */
+    .portfolio-gallery img {
+      width: 200px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+    }
+
+  </style>
 </head>
 
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-  <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
-
-  <div class="hamburger" onclick="toggleNav()">
-    &#9776;
-  </div>
-
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </div>
+  <a href="#">Home</a>
+  <a href="#">Portfolio</a>
+  <a href="#">About</a>
+  <a href="#">Contact</a>
 </nav>
 
-<!-- MAIN CONTENT -->
-<main class="inner-page">
+<main>
 
-  <!-- SMALL PORTFOLIO IMAGE -->
   <section class="portfolio-banner">
-    <img src="images/image3.jpg" alt="Portfolio Image">
+    <img src="images/image3.jpg" alt="">
   </section>
 
-  <!-- GALLERY -->
   <section class="portfolio-gallery">
-
-    <img src="images/image1.jpg" alt="Work 1">
-    <img src="images/image2.jpg" alt="Work 2">
-    <img src="images/image3.jpg" alt="Work 3">
-    <img src="images/image4.jpg" alt="Work 4">
-
+    <img src="images/image1.jpg" alt="">
+    <img src="images/image2.jpg" alt="">
+    <img src="images/image3.jpg" alt="">
+    <img src="images/image4.jpg" alt="">
   </section>
 
 </main>
-
-<!-- MOBILE NAV SCRIPT -->
-<script>
-function toggleNav() {
-  document.querySelector('.nav-links').classList.toggle('show');
-}
-</script>
 
 </body>
 </html>
