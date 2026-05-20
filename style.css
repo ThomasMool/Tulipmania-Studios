@@ -1,3 +1,85 @@
+Here is your complete, fully corrected **HTML** and **CSS** source code combined.
+
+The CSS has been restructured to stack your images flawlessly via `absolute` overlays, utilize the fade effect your JavaScript demands via `opacity`, and properly align the hero text dynamically so it respects your desktop side panel and neatly centers on mobile.
+
+### 1. The HTML (`index.html`)
+
+*Cleaned up slight typos, and added a proper semantic `<main>` tag around the hero section to cleanly align with your sidebar layout properties.*
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tulipmania Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <section id="hero">
+    <div class="hero-slide">
+      <img src="images/image1.jpg" alt="Hero 1">
+      <img src="images/image3.jpg" alt="Hero 3">
+    </div>
+    <div class="hero-text">
+      <h2>Passionate about films.<br>Maniacally passionate.</h2>
+    </div>
+  </section>
+</main>
+  
+<script>
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('show');
+}
+</script>
+
+<script>
+const slides = document.querySelectorAll('.hero-slide img');
+let current = 0;
+const delay = 6000; // 6 seconds
+
+function showSlide(index) {
+  slides.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+// Initialize the first slide
+showSlide(current);
+setInterval(nextSlide, delay);
+</script>
+</body>
+</html>
+
+```
+
+---
+
+### 2. The Complete CSS (`style.css`)
+
+*This contains your original styles with the injected slider logic, layered positioning fixes, and custom media query overrides to maintain absolute responsiveness.*
+
+```css
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
 /* GLOBAL RESET */
@@ -85,7 +167,7 @@ nav a:hover, nav a.active {
   width: 100%;
 }
 
-/* BACKGROUND HERO IMAGE (LAYER 10 - Sits at the bottom) */
+/* BACKGROUND HERO IMAGE & SLIDESHOW */
 #hero {
   position: fixed;
   top: 0;
@@ -96,24 +178,58 @@ nav a:hover, nav a.active {
   z-index: 10; 
 }
 
-#hero img {
+/* Stacks pictures precisely layered on top of each other */
+#hero .hero-slide img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 1.2s ease-in-out; /* Smooth transition when fading */
+}
+
+/* Triggers when JavaScript updates class to active */
+#hero .hero-slide img.active {
+  opacity: 1;
+}
+
+/* HERO TEXT OVERLAY (LAYER 15 - Above background slides, below panel interfaces) */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 100px); /* Offsets the center by exactly half the nav's width */
+  transform: translate(-50%, -50%);
+  z-index: 15;
+  text-align: center;
+  width: calc(100% - 240px);
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+.hero-text h2 {
+  font-family: 'Lexend Exa', sans-serif;
+  color: #fcf0e3;
+  font-size: 2.8rem;
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7); /* Guarantees high text legibility over imagery */
 }
 
 /* PICTURE MOVEMENT RESET */
 .shift-right {
-  position: static; /* Restores the picture exactly to its default, native location */
+  position: static; 
 }
 
-/* SLIDE-OUT TEXT PANEL (LAYER 20 - Cuts in front of the picture, behind the nav) */
+/* SLIDE-OUT TEXT PANEL (LAYER 20) */
 .about-text-panel {
   position: fixed;
   top: 0;
-  left: 200px; /* Aligns right along the edge of the navigation panel */
+  left: 200px; 
   width: 380px; 
   height: 100vh;
   background: rgba(15, 15, 15, 0.95); 
@@ -122,7 +238,6 @@ nav a:hover, nav a.active {
   z-index: 20; 
   border-right: 1px solid rgba(255, 237, 254, 0.1);
   
-  /* Smooth Slide-out Motion */
   transform: translateX(-100%); 
   animation: slideOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   animation-delay: 0.1s;
@@ -146,14 +261,14 @@ nav a:hover, nav a.active {
 
 @keyframes slideOut {
   to {
-    transform: translateX(0); /* Reveals the panel by sliding it to the right */
+    transform: translateX(0); 
   }
 }
 
 /* MAIN CONTENT DESKTOP SPACING */
 main {
-  margin-left: 280px;
-  padding: 20px;
+  margin-left: 200px; /* Synchronized with navigation width */
+  height: 100vh;
 }
 
 /* GALLERIES & CONTACT */
@@ -180,7 +295,7 @@ section#contact a:hover {
   color: #ff6f61;
 }
 
-/* RESPONSIVE: MOBILE SHOP */
+/* RESPONSIVE: MOBILE LAYOUT STYLE */
 @media (max-width: 768px) {
   nav {
     width: 100%;
@@ -203,7 +318,7 @@ section#contact a:hover {
     transform: none;
     animation: none;
     background: #0a0a0a;
-    z-index: 40; /* Brings text above layout variables on small screens */
+    z-index: 40; 
   }
   
   main {
@@ -213,7 +328,20 @@ section#contact a:hover {
   
   #hero {
     position: relative;
-    height: 50vh;
+    height: 100vh; /* Keeps hero layout fullscreen on mobile */
+  }
+
+  /* Corrects mobile screen position offset for hero text container */
+  .hero-text {
+    left: 50%;
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+    white-space: normal;
+    line-height: 1.4;
   }
 
   nav .hamburger {
@@ -251,11 +379,6 @@ section#contact a:hover {
     font-size: 18px;
     margin-bottom: 0;
   }
-
-  .hero-text h2 {
-    font-size: 1.3em;
-    white-space: normal;
-    line-height: 1.4;
-    text-indent: 0;
-  }
 }
+
+```
