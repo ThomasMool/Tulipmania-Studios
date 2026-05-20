@@ -222,7 +222,7 @@ main.portfolio-page-layout {
   transform: scale(1.15); 
   
   /* Controls centering alignment. Tweak to 'top center' or 'bottom center' if needed */
-  object-position: top 40% center;
+  object-position: top 80% center;
   
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
