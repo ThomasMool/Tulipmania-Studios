@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav>
   <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
   <div class="hamburger" onclick="toggleNav()">&#9776;</div>
@@ -18,6 +19,11 @@
     <a href="portfolio.html">Portfolio</a>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- Pinned Logo Container -->
+  <div class="nav-logo">
+    <img src="images/image4.png" alt="Tulipmania Studios Logo">
   </div>
 </nav>
 
@@ -36,12 +42,14 @@
   </div>
 </main>
   
+<!-- MOBILE NAV SCRIPT -->
 <script>
 function toggleNav() {
   document.querySelector('.nav-links').classList.toggle('show');
 }
 </script>
 
+<!-- SLIDESHOW SCRIPT -->
 <script>
 const slides = document.querySelectorAll('.hero-slide img');
 let current = 0;
