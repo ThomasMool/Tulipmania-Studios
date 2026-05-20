@@ -13,7 +13,7 @@ body {
 
 /* NAVIGATION */
 nav {
-  width: 200px;
+  width: 240px; /* Increased from 200px to make the sidebar wider */
   height: 100vh;
   position: fixed;
   top: 0;
@@ -21,7 +21,7 @@ nav {
   background: rgba(0,0,0,0.85);
   display: flex;
   flex-direction: column;
-  padding: 50px 20px;
+  padding: 50px 24px; /* Added slightly more horizontal padding for balance */
   z-index: 30;
   box-shadow: 2px 0 10px rgba(0,0,0,0.5);
   box-sizing: border-box;
@@ -90,25 +90,25 @@ nav a.active {
 /* SIDEBAR LOGO POSITIONING */
 .nav-logo {
   position: absolute;
-  bottom: 40px; /* Leaves a polished gap from the bottom edge */
-  left: 20px;   /* Aligns cleanly with your sidebar padding */
-  width: calc(100% - 40px); /* Centers the wrapper container inside the sidebar bounds */
+  bottom: 40px;
+  left: 24px;   
+  width: calc(100% - 48px); /* Adjusted layout math for the new padding widths */
   text-align: center;
-  pointer-events: none; /* Prevents the logo image from blocking menu interaction clicks */
+  pointer-events: none;
 }
 
 .nav-logo img {
   width: 100%;
-  max-width: 60px; /* Caps the logo size so it stays proportional inside the sidebar */
+  max-width: 60px; 
   height: auto;
   object-fit: contain;
   display: inline-block;
-  opacity: 0.8; /* Subtle transparency to blend naturally with the template */
+  opacity: 0.8;
   transition: opacity 0.3s ease;
 }
 
 nav:hover .nav-logo img {
-  opacity: 1; /* Brightens up perfectly when the user hovers over the navigation menu */
+  opacity: 1;
 }
 
 /* GLOBAL HERO SECTION DEFAULTS (Used on Index) */
@@ -144,11 +144,11 @@ nav:hover .nav-logo img {
 .hero-text {
   position: fixed;
   top: 50%;
-  left: calc(50% + 100px);
+  left: calc(50% + 120px); /* Adjusted math: Centers text in the remaining screen space (half of 240px is 120px) */
   transform: translate(-50%, -50%);
   z-index: 9999;
   text-align: center;
-  width: calc(100% - 240px);
+  width: calc(100% - 280px); /* Keeps text from bumping right against edges */
   box-sizing: border-box;
   padding: 0 20px;
   pointer-events: none;
@@ -168,7 +168,7 @@ nav:hover .nav-logo img {
 .about-text-panel {
   position: fixed;
   top: 0;
-  left: 200px;
+  left: 240px; /* Snaps perfectly against the widened 240px sidebar */
   width: 380px;
   height: 100vh;
   background: rgba(15,15,15,0.95);
@@ -205,13 +205,13 @@ nav:hover .nav-logo img {
 
 /* DEFAULT MAIN CONTAINER */
 main {
-  margin-left: 200px;
+  margin-left: 240px; /* Shifted right to leave room for wider nav */
   height: 100vh;
 }
 
 /* INNER PAGES CONTAINER WORKSPACE */
 main.inner-page {
-  margin-left: 200px;
+  margin-left: 240px; /* Shifted right to leave room for wider nav */
   padding: 40px;
   box-sizing: border-box;
   height: auto;
@@ -303,7 +303,6 @@ section#contact a:hover {
     background: rgba(0,0,0,0.9);
   }
 
-  /* Hides the logo container seamlessly inside the collapsed mobile top-bar */
   .nav-logo {
     display: none;
   }
