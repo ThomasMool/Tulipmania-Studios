@@ -142,7 +142,6 @@ nav:hover .nav-logo img {
 
 /* HERO TEXT OVERLAY (Index) */
 .hero-text {
-.hero-text {
   position: fixed;
   top: 50%;
   left: calc(50% + 120px); /* Keeps text centered in the space next to the 240px nav */
