@@ -111,7 +111,7 @@ nav:hover .nav-logo img {
   opacity: 1;
 }
 
-/* GLOBAL HERO SECTION DEFAULTS (Used on Index) */
+/* GLOBAL HERO SECTION DEFAULTS (Used on Index & Backgrounds) */
 #hero {
   position: fixed;
   top: 0;
@@ -122,7 +122,7 @@ nav:hover .nav-logo img {
   z-index: 10;
 }
 
-/* HERO SLIDESHOW (Index) */
+/* HERO SLIDESHOW (Index / Backgrounds) */
 #hero .hero-slide img {
   position: absolute;
   top: 0;
@@ -149,7 +149,7 @@ nav:hover .nav-logo img {
   z-index: 9999;
   text-align: center;
   width: 90%;             
-  max-width: 1100px;       /* Fixed: Expanded to allow clean horizontal string lines */
+  max-width: 1100px;       
   box-sizing: border-box;
   padding: 0 20px;
   pointer-events: none;
@@ -158,7 +158,7 @@ nav:hover .nav-logo img {
 .hero-text h2 {
   font-family: 'Lexend Exa', sans-serif;
   color: #fcf0e3;
-  font-size: 1.9rem;      /* Fixed: Reduced scale to keep the typography elegant */
+  font-size: 1.9rem;      
   line-height: 1.5;
   margin: 0;
   letter-spacing: 2px;
@@ -174,7 +174,7 @@ nav:hover .nav-logo img {
   height: 100vh;
   background: rgba(30, 30, 30, 0.92);
   box-sizing: border-box;
-  padding: 20px 40px 80px 40px; /* Fixed: Tightened to move text blocks up */
+  padding: 20px 40px 80px 40px; 
   z-index: 20;
   border-right: 1px solid rgba(255,237,254,0.1);
   transform: translateX(-100%);
@@ -202,7 +202,7 @@ nav:hover .nav-logo img {
 .about-text-panel h2.underline-accent {
   position: relative;
   display: inline-block; 
-  margin-bottom: 20px;   /* Fixed: Reduced spacing to keep components tight */
+  margin-bottom: 20px;   
 }
 
 .about-text-panel h2.underline-accent::after {
@@ -221,13 +221,13 @@ nav:hover .nav-logo img {
   }
 }
 
-/* DEFAULT MAIN CONTAINER */
+/* DEFAULT MAIN CONTAINER FLOW */
 main {
   margin-left: 240px; 
   height: 100vh;
 }
 
-/* INNER PAGES CONTAINER WORKSPACE */
+/* INNER PAGES CONTENT CONTAINER */
 main.inner-page {
   margin-left: 240px; 
   padding: 40px;
@@ -235,46 +235,68 @@ main.inner-page {
   height: auto;
 }
 
-/* FIXED SUB-PAGE HERO BANNER OVERRIDES */
-body main.inner-page #hero,
-body main.inner-page .portfolio-banner {
+/* PORTFOLIO CINEMATIC TOP-THIRD LAYOUT */
+main.portfolio-page-layout {
+  margin-left: 240px; 
+  height: 100vh;
   position: relative;
-  top: auto;
-  left: auto;
-  width: 100%;
-  height: 380px; 
-  max-height: 380px;
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 40px;
+  z-index: 20; 
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
-/* FIXED SUB-PAGE HERO BANNER IMAGE */
-body main.inner-page #hero img,
-body main.inner-page .portfolio-banner img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.featured-video-hero {
+  width: 100%;
+  height: 33vh; 
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 237, 254, 0.1);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+}
+
+.featured-video-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 1 !important; 
-  display: block;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* INNER HERO TEXT OVERLAY STYLE */
-main.inner-page .hero-text {
+.featured-video-hero .play-overlay-hint {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(10, 10, 10, 0.75);
+  padding: 8px 16px;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #ffedfe;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 237, 254, 0.2);
+  transition: background 0.3s ease;
 }
 
-/* GALLERIES */
+.featured-video-hero:hover {
+  transform: translateY(-4px); 
+  box-shadow: 0 30px 60px rgba(255, 237, 254, 0.15); 
+}
+
+.featured-video-hero:hover img {
+  transform: scale(1.02); 
+}
+
+.featured-video-hero:hover .play-overlay-hint {
+  background: #ffedfe;
+  color: #0a0a0a;
+}
+
+/* GALLERIES (Fallback grids) */
 .about-gallery,
 .portfolio-gallery {
   display: flex;
@@ -282,7 +304,6 @@ main.inner-page .hero-text {
   gap: 20px;
 }
 
-/* GALLERY IMAGES & LINK WRAPPERS */
 .about-gallery img,
 .portfolio-gallery img,
 .portfolio-gallery .video-card {
@@ -302,7 +323,6 @@ main.inner-page .hero-text {
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
 }
 
-/* POP UP HOVER EFFECT FOR PORTFOLIO ITEMS */
 .about-gallery img:hover,
 .portfolio-gallery img:hover,
 .portfolio-gallery .video-card:hover img {
@@ -329,7 +349,7 @@ section#contact a:hover {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Fixed: Reduced padding to lift the top header panel up higher */
+    padding: 10px 20px; 
     position: fixed;
     background: rgba(0,0,0,0.9);
     z-index: 100;
@@ -362,6 +382,15 @@ section#contact a:hover {
     margin-left: 0;
     padding: 20px;
     padding-top: 80px;
+  }
+
+  main.portfolio-page-layout {
+    margin-left: 0;
+    padding: 80px 20px 20px 20px; 
+  }
+
+  .featured-video-hero {
+    height: 25vh; 
   }
 
   #hero {
@@ -401,7 +430,7 @@ section#contact a:hover {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 40px; /* Fixed: Lifted popup box frame to match top header height adjustments */
+    top: 40px; 
     right: 20px;
     background: rgba(10,10,10,0.95);
     padding: 20px;
