@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
 
 /* GLOBAL RESET */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -10,19 +11,19 @@ html, body {
   color: #e6e6e6;
 }
 
-/* NAVIGATION (LAYER 30 - Always on top) */
+/* NAVIGATION */
 nav {
   width: 200px;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.85); 
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
   padding: 50px 20px;
-  z-index: 30; 
-  box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+  z-index: 30;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
@@ -60,7 +61,7 @@ nav a {
   margin-bottom: 25px;
   position: relative;
   display: inline-block;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 nav a::after {
@@ -74,18 +75,19 @@ nav a::after {
   transition: width 0.3s ease;
 }
 
-nav a:hover::after, nav a.active::after {
+nav a:hover::after,
+nav a.active::after {
   width: 100%;
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
   color: #ffedfe;
   transform: translateX(5px);
   font-weight: 700;
-  width: 100%;
 }
 
-/* BACKGROUND INDEX HERO IMAGE & SLIDESHOW */
+/* HERO SECTION */
 #hero {
   position: fixed;
   top: 0;
@@ -93,70 +95,69 @@ nav a:hover, nav a.active {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 10; 
+  z-index: 10;
+}
+
+/* HERO SLIDES */
+#hero .hero-slide {
+  position: absolute;
+  inset: 0;
 }
 
 #hero .hero-slide img {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
   display: block;
-  opacity: 0; 
-  transition: opacity 1.2s ease-in-out; 
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
 }
 
 #hero .hero-slide img.active {
   opacity: 1;
 }
 
-/* HERO TEXT OVERLAY (Index Version) */
+/* HERO TEXT */
 .hero-text {
-  position: fixed; 
+  position: fixed;
   top: 50%;
-  left: calc(50% + 100px); 
+  left: calc(50% + 100px);
   transform: translate(-50%, -50%);
   z-index: 9999;
   text-align: center;
   width: calc(100% - 240px);
   box-sizing: border-box;
   padding: 0 20px;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .hero-text h2 {
   font-family: 'Lexend Exa', sans-serif;
-  color: #fcf0e3 !important;
+  color: #fcf0e3;
   font-size: 2.8rem;
   line-height: 1.4;
   margin: 0;
   letter-spacing: 1px;
-  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9); 
-  display: block;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
 }
 
-/* PICTURE MOVEMENT RESET */
-.shift-right {
-  position: static; 
-}
-
-/* SLIDE-OUT TEXT PANEL (LAYER 20) */
+/* ABOUT PANEL */
 .about-text-panel {
   position: fixed;
   top: 0;
-  left: 200px; 
-  width: 380px; 
+  left: 200px;
+  width: 380px;
   height: 100vh;
-  background: rgba(15, 15, 15, 0.95); 
+  background: rgba(15, 15, 15, 0.95);
   box-sizing: border-box;
   padding: 80px 40px;
-  z-index: 20; 
+  z-index: 20;
   border-right: 1px solid rgba(255, 237, 254, 0.1);
-  
-  transform: translateX(-100%); 
+
+  transform: translateX(-100%);
   animation: slideOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   animation-delay: 0.1s;
 }
@@ -179,64 +180,82 @@ nav a:hover, nav a.active {
 
 @keyframes slideOut {
   to {
-    transform: translateX(0); 
+    transform: translateX(0);
   }
 }
 
-/* STANDARD WORKSPACE DESKTOP SPACING */
+/* MAIN CONTENT */
 main {
-  margin-left: 200px; 
+  margin-left: 200px;
   height: 100vh;
 }
 
-/* FIX FOR INNER SUB-PAGES (Portfolio, About, etc.) */
+/* INNER PAGES */
 main.inner-page {
-  margin-left: 200px; 
+  margin-left: 200px;
   padding: 40px;
   box-sizing: border-box;
-  height: auto; 
+  height: auto;
 }
 
+/* INNER PAGE HERO */
 main.inner-page #hero {
-  position: relative; 
+  position: relative;
   width: 100%;
-  height: 45vh; 
+  height: 45vh;
   max-height: 400px;
-  border-radius: 12px; 
+  border-radius: 12px;
   margin-bottom: 40px;
+  overflow: hidden;
 }
 
-main.inner-page #hero img {
-  position: relative;
-  opacity: 1; 
+/* FIXED: ONLY HERO IMAGES */
+main.inner-page #hero .hero-slide img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 1;
 }
 
+/* INNER PAGE HERO TEXT */
 main.inner-page .hero-text {
-  position: absolute; 
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
 
-/* GALLERIES & CONTACT */
-.about-gallery, .portfolio-gallery {
+/* GALLERIES */
+.about-gallery,
+.portfolio-gallery {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
+  align-items: flex-start;
 }
 
-.about-gallery img, .portfolio-gallery img {
-  width: 100%;
+/* FIXED IMAGE SIZE */
+.about-gallery img,
+.portfolio-gallery img {
+  width: auto;
   max-width: 300px;
+  height: auto;
   border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* HOVER EFFECT */
+.about-gallery img:hover,
+.portfolio-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8);
+}
+
+/* CONTACT LINKS */
 section#contact a {
   color: #f2c94c;
   text-decoration: none;
@@ -246,8 +265,9 @@ section#contact a:hover {
   color: #ff6f61;
 }
 
-/* RESPONSIVE: MOBILE LAYOUT STYLE */
+/* MOBILE */
 @media (max-width: 768px) {
+
   nav {
     width: 100%;
     height: auto;
@@ -257,6 +277,42 @@ section#contact a:hover {
     padding: 15px 20px;
     position: fixed;
     background: rgba(0, 0, 0, 0.9);
+  }
+
+  nav .hamburger {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  nav .nav-title {
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+
+  nav .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: rgba(10, 10, 10, 0.95);
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 50;
+    width: 150px;
+  }
+
+  nav .nav-links.show {
+    display: flex;
+  }
+
+  nav a {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  nav a:last-child {
+    margin-bottom: 0;
   }
 
   .about-text-panel {
@@ -269,27 +325,27 @@ section#contact a:hover {
     transform: none;
     animation: none;
     background: #0a0a0a;
-    z-index: 40; 
+    z-index: 40;
   }
-  
+
   main {
-    padding: 60px 0 0 0 !important;
     margin-left: 0;
+    padding-top: 60px;
   }
-  
+
   main.inner-page {
     margin-left: 0;
     padding: 20px;
-    padding-top: 80px; 
+    padding-top: 80px;
   }
-  
+
   #hero {
     position: relative;
     height: 100vh;
   }
 
   main.inner-page #hero {
-    height: 30vh; 
+    height: 30vh;
   }
 
   .hero-text {
@@ -306,43 +362,12 @@ section#contact a:hover {
 
   .hero-text h2 {
     font-size: 1.8rem;
-    white-space: normal;
     line-height: 1.4;
   }
 
-  nav .hamburger {
-    display: block;
-    margin-bottom: 0;
-  }
-
-  nav .nav-links {
-    display: none; 
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: rgba(10, 10, 10, 0.95);
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 50;
-    width: 150px;
-  }
-
-  nav .nav-links.show {
-    display: flex; 
-  }
-
-  nav a {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-  
-  nav a:last-child {
-    margin-bottom: 0;
-  }
-
-  nav .nav-title {
-    font-size: 18px;
-    margin-bottom: 0;
+  /* MOBILE IMAGE FIX */
+  .about-gallery img,
+  .portfolio-gallery img {
+    max-width: 100%;
   }
 }
