@@ -269,12 +269,33 @@ main.portfolio-page-layout {
   text-transform: uppercase;
 }
 
-.hero-hover-content p {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  color: #ffedfe;
-  margin: 0;
-  letter-spacing: 1px;
+/* Hover Image Overlay Container */
+.hero-hover-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%); /* Starts slightly lower for a lift-up effect */
+  width: 60%; /* Adjust width to make your image larger or smaller */
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* Style the image itself */
+.hero-hover-image img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: contain;
+}
+
+/* Trigger animation on hover */
+.featured-video-hero:hover .hero-hover-image {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%); /* Slides into perfect center */
 }
 
 /* Hover state transitions */
