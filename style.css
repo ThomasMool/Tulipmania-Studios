@@ -22,7 +22,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 50px 24px; 
-  z-index: 200; /* Stays comfortably on top of all page content layers */
+  z-index: 200;
   box-shadow: 2px 0 10px rgba(0,0,0,0.5);
   box-sizing: border-box;
 }
@@ -87,19 +87,18 @@ nav a.active {
   font-weight: 700;
 }
 
-/* SIDEBAR LOGO POSITIONING */
 .nav-logo {
   position: absolute;
   bottom: 15px;
   left: 24px;   
-  width: calc(100% - 48px); 
+  width: calc(100% - 48px);  
   text-align: left;
   pointer-events: none;
 }
 
 .nav-logo img {
   width: 100%;
-  max-width: 60px; 
+  max-width: 60px;  
   height: auto;
   object-fit: contain;
   display: inline-block;
@@ -111,7 +110,7 @@ nav:hover .nav-logo img {
   opacity: 1;
 }
 
-/* GLOBAL HERO BACKGROUND LAYER (Lowest layer priority) */
+/* HERO BACKGROUND */
 #hero {
   position: fixed;
   top: 0;
@@ -119,10 +118,9 @@ nav:hover .nav-logo img {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  z-index: 1 !important; /* Force this layer down so it stays beneath foreground modules */
+  z-index: 1 !important;
 }
 
-/* BACKGROUND IMAGE HANDLERS */
 #hero .hero-slide img {
   position: absolute;
   top: 0;
@@ -140,13 +138,11 @@ nav:hover .nav-logo img {
   opacity: 1;
 }
 
-/* Force static asset rendering for custom inside pages */
 main.portfolio-page-layout ~ #hero .hero-slide img,
 #hero .hero-slide img[style*="opacity: 1"] {
   opacity: 1 !important;
 }
 
-/* HERO TEXT OVERLAY (Index Page Only) */
 .hero-text {
   position: fixed;
   top: 50%;
@@ -154,7 +150,7 @@ main.portfolio-page-layout ~ #hero .hero-slide img,
   transform: translate(-50%, -50%);
   z-index: 150;
   text-align: center;
-  width: 90%;             
+  width: 90%;            
   max-width: 1100px;       
   box-sizing: border-box;
   padding: 0 20px;
@@ -171,13 +167,12 @@ main.portfolio-page-layout ~ #hero .hero-slide img,
   text-shadow: 0 4px 15px rgba(0,0,0,0.9);
 }
 
-/* DEFAULT MAIN CONTAINER FLOW */
+/* LAYOUT */
 main {
   margin-left: 240px; 
   height: 100vh;
 }
 
-/* INNER PAGES DEFAULT GRID CONTAINER */
 main.inner-page {
   margin-left: 240px; 
   padding: 40px;
@@ -185,49 +180,48 @@ main.inner-page {
   height: auto;
 }
 
-/* PORTFOLIO CINEMATIC TOP-THIRD LAYER STACK */
 main.portfolio-page-layout {
   margin-left: 240px; 
-  height: 100vh;
+  height: auto;
   position: relative !important;
-  z-index: 99 !important; /* Forces layout forward completely in front of the background */
+  z-index: 99 !important;
   padding: 40px;
   box-sizing: border-box;
   display: flex !important;
   flex-direction: column;
 }
 
-/* THE FEATURED IMAGE MODULE CONTAINER */
+/* PORTFOLIO GRID */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  width: 100%;
+}
+
 .featured-video-hero {
   width: 100% !important;
-  height: 40vh !important; /* Increased to cover 40% of the page viewport height */
+  height: 350px !important;
   position: relative;
   display: block !important;
-  visibility: visible !important;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 237, 254, 0.1);
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+  text-decoration: none;
 }
 
-/* THE FEATURED IMAGE ASSET DESIGN */
 .featured-video-hero img {
   width: 100% !important;
   height: 100% !important;
   display: block !important;
   object-fit: cover;
-  
-  /* Pulls the camera framing back inside the box to reveal more content safely */
-  transform: scale(1.60); 
-  
-  /* Controls centering alignment. Tweak to 'top center' or 'bottom center' if needed */
+  transform: scale(1.30); 
   object-position: center center;
-  
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* HOVER OVERLAY TEXT & DARKENING EFFECTS */
 .featured-video-hero::before {
   content: "";
   position: absolute;
@@ -238,21 +232,20 @@ main.portfolio-page-layout {
   background: rgba(0, 0, 0, 0); 
   z-index: 2;
   transition: background 0.4s ease;
-  pointer-events: none;
 }
 
 .featured-video-hero:hover::before {
-  background: rgba(0, 0, 0, 0.55); /* Darkens the image card on hover */
+  background: rgba(0, 0, 0, 0.55);
 }
 
 .hero-hover-content {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -40%);
   width: 80%;
   text-align: center;
-  z-index: 3; /* Pushes content in front of darkening mask layer */
+  z-index: 3;
   opacity: 0;
   visibility: hidden;
   transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
@@ -264,58 +257,27 @@ main.portfolio-page-layout {
   font-size: 24px;
   font-weight: 700;
   color: #fcf0e3;
-  margin: 0 0 8px 0;
+  margin: 0;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-/* Hover Image Overlay Container */
-.hero-hover-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -45%); /* Starts slightly lower for a lift-up effect */
-  width: 40%; /* Adjust width to make your image larger or smaller */
-  z-index: 3;
-  opacity: 0;
-  visibility: hidden;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
-  pointer-events: none;
-}
-
-/* Style the image itself */
-.hero-hover-image img {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
-  object-fit: contain;
-}
-
-/* Trigger animation on hover */
-.featured-video-hero:hover .hero-hover-image {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%); /* Slides into perfect center */
-}
-
-/* Hover state transitions */
 .featured-video-hero:hover {
   transform: translateY(-4px); 
   box-shadow: 0 30px 60px rgba(255, 237, 254, 0.15); 
 }
 
 .featured-video-hero:hover img {
-  /* Dynamic micro-zoom scaling relative to our new view base */
-  transform: scale(1.22); 
+  transform: scale(1.15); 
 }
 
 .featured-video-hero:hover .hero-hover-content {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -50%); /* Drops text smoothly into center position */
+  transform: translate(-50%, -50%);
 }
 
-/* ABOUT PANEL (Sits at mid-layer depth) */
+/* ABOUT PANEL */
 .about-text-panel {
   position: fixed;
   top: 0;
@@ -358,19 +320,17 @@ main.portfolio-page-layout {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;          
+  bottom: -6px;         
   width: 100%;           
   height: 2px;
   background: #ffedfe;   
 }
 
 @keyframes slideOut {
-  to {
-    transform: translateX(0);
-  }
+  to { transform: translateX(0); }
 }
 
-/* GALLERIES (Fallback static layout rules) */
+/* GALLERIES */
 .about-gallery,
 .portfolio-gallery {
   display: flex;
@@ -405,144 +365,24 @@ main.portfolio-page-layout {
   cursor: pointer;
 }
 
-/* CONTACT */
-section#contact a {
-  color: #f2c94c;
-  text-decoration: none;
-}
+section#contact a { color: #f2c94c; text-decoration: none; }
+section#contact a:hover { color: #ff6f61; }
 
-section#contact a:hover {
-  color: #ff6f61;
-}
-
-/* RESPONSIVE MOBILE ARCHITECTURE */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-  nav {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px; 
-    position: fixed;
-    background: rgba(0,0,0,0.9);
-    z-index: 250;
-  }
-
-  .nav-logo {
-    display: none !important;
-  }
-
-  .about-text-panel {
-    position: relative;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    padding: 90px 20px 40px 20px; 
-    transform: none;
-    animation: none;
-    background: rgba(30, 30, 30, 0.92);
-    z-index: 40;
-    box-sizing: border-box; 
-  }
-
-  main {
-    padding: 60px 0 0 0 !important;
-    margin-left: 0;
-  }
-
-  main.inner-page {
-    margin-left: 0;
-    padding: 20px;
-    padding-top: 80px;
-  }
-
-  main.portfolio-page-layout {
-    margin-left: 0 !important;
-    padding: 80px 20px 20px 20px !important; 
-  }
-
-  .featured-video-hero {
-    height: 30vh !important; /* Proportionally bumped mobile size up from 25vh */
-  }
-
-  .hero-hover-content h3 {
-    font-size: 18px;
-  }
-  
-  .hero-hover-content p {
-    font-size: 12px;
-  }
-
-  #hero {
-    position: relative;
-    height: 100vh;
-  }
-
-  body main.inner-page #hero,
-  body main.inner-page .portfolio-banner {
-    height: 220px;
-  }
-
-  .hero-text {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    padding: 0 24px;
-  }
-
-  main.inner-page .hero-text {
-    position: absolute;
-  }
-
-  .hero-text h2 {
-    font-size: 1.8rem;
-    white-space: normal;
-    line-height: 1.4;
-  }
-
-  nav .hamburger {
-    display: block;
-    margin-bottom: 0;
-  }
-
-  nav .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 40px; 
-    right: 20px;
-    background: rgba(10,10,10,0.95);
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 50;
-    width: 150px;
-  }
-
-  nav .nav-links.show {
-    display: flex;
-  }
-
-  nav a {
-    font-size: 16px;
-    margin-bottom: 15px;
-  }
-
-  nav a:last-child {
-    margin-bottom: 0;
-  }
-
-  nav .nav-title {
-    font-size: 18px;
-    margin-bottom: 0;
-  }
-
-  .about-gallery img,
-  .portfolio-gallery img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
+  nav { width: 100%; height: auto; flex-direction: row; justify-content: space-between; align-items: center; padding: 10px 20px; position: fixed; background: rgba(0,0,0,0.9); z-index: 250; }
+  .nav-logo { display: none !important; }
+  .about-text-panel { position: relative; left: 0; top: 0; width: 100%; height: auto; padding: 90px 20px 40px 20px; transform: none; animation: none; background: rgba(30, 30, 30, 0.92); z-index: 40; box-sizing: border-box; }
+  main { padding: 60px 0 0 0 !important; margin-left: 0; }
+  main.inner-page { margin-left: 0; padding: 20px; padding-top: 80px; }
+  main.portfolio-page-layout { margin-left: 0 !important; padding: 80px 20px 20px 20px !important; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .featured-video-hero { height: 250px !important; }
+  .hero-text { position: fixed; left: 50%; top: 50%; width: 100%; padding: 0 24px; }
+  main.inner-page .hero-text { position: absolute; }
+  .hero-text h2 { font-size: 1.8rem; }
+  nav .hamburger { display: block; }
+  nav .nav-links { display: none; flex-direction: column; position: absolute; top: 40px; right: 20px; background: rgba(10,10,10,0.95); padding: 20px; border-radius: 8px; z-index: 50; width: 150px; }
+  nav .nav-links.show { display: flex; }
+  nav a { font-size: 16px; margin-bottom: 15px; }
 }
