@@ -27,14 +27,17 @@ nav {
   box-sizing: border-box;
 }
 
-nav .nav-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #fcf0e3;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+/* LOGO BOVENAAN (Vervangt oude nav-title en nav-logo) */
+.nav-logo-top {
   margin-bottom: 40px;
-  text-decoration: none;
+  text-align: left;
+}
+
+.nav-logo-top img {
+  width: 100%;
+  max-width: 100px; 
+  height: auto;
+  display: block;
 }
 
 nav .hamburger {
@@ -48,7 +51,7 @@ nav .hamburger {
 nav .nav-links {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 nav a {
@@ -85,29 +88,6 @@ nav a.active {
   color: #ffedfe;
   transform: translateX(5px);
   font-weight: 700;
-}
-
-.nav-logo {
-  position: absolute;
-  bottom: 15px;
-  left: 24px;   
-  width: calc(100% - 48px);  
-  text-align: left;
-  pointer-events: none;
-}
-
-.nav-logo img {
-  width: 100%;
-  max-width: 60px;  
-  height: auto;
-  object-fit: contain;
-  display: inline-block;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-nav:hover .nav-logo img {
-  opacity: 1;
 }
 
 /* HERO BACKGROUND */
@@ -150,7 +130,7 @@ main.portfolio-page-layout ~ #hero .hero-slide img,
   transform: translate(-50%, -50%);
   z-index: 150;
   text-align: center;
-  width: 90%;            
+  width: 90%;          
   max-width: 1100px;       
   box-sizing: border-box;
   padding: 0 20px;
@@ -313,14 +293,14 @@ main.portfolio-page-layout {
 .about-text-panel h2.underline-accent {
   position: relative;
   display: inline-block; 
-  margin-bottom: 20px;   
+  margin-bottom: 20px;    
 }
 
 .about-text-panel h2.underline-accent::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -6px;         
+  bottom: -6px;          
   width: 100%;           
   height: 2px;
   background: #ffedfe;   
@@ -370,19 +350,4 @@ section#contact a:hover { color: #ff6f61; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  nav { width: 100%; height: auto; flex-direction: row; justify-content: space-between; align-items: center; padding: 10px 20px; position: fixed; background: rgba(0,0,0,0.9); z-index: 250; }
-  .nav-logo { display: none !important; }
-  .about-text-panel { position: relative; left: 0; top: 0; width: 100%; height: auto; padding: 90px 20px 40px 20px; transform: none; animation: none; background: rgba(30, 30, 30, 0.92); z-index: 40; box-sizing: border-box; }
-  main { padding: 60px 0 0 0 !important; margin-left: 0; }
-  main.inner-page { margin-left: 0; padding: 20px; padding-top: 80px; }
-  main.portfolio-page-layout { margin-left: 0 !important; padding: 80px 20px 20px 20px !important; }
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .featured-video-hero { height: 250px !important; }
-  .hero-text { position: fixed; left: 50%; top: 50%; width: 100%; padding: 0 24px; }
-  main.inner-page .hero-text { position: absolute; }
-  .hero-text h2 { font-size: 1.8rem; }
-  nav .hamburger { display: block; }
-  nav .nav-links { display: none; flex-direction: column; position: absolute; top: 40px; right: 20px; background: rgba(10,10,10,0.95); padding: 20px; border-radius: 8px; z-index: 50; width: 150px; }
-  nav .nav-links.show { display: flex; }
-  nav a { font-size: 16px; margin-bottom: 15px; }
-}
+  nav { width: 100%; height: auto; flex-direction: row; justify-content: space-between; align-items: center; padding: 10px 20px; position: fixed; background: rgba(0,0,0,0.9); z-index:
