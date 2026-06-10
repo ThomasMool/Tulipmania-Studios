@@ -75,7 +75,7 @@ nav {
 }
 
 .nav-logo-top .logo-link:hover::after {
-  width: 80%; /* De balk schuift uit tot 80% van de logobreedte */
+  width: 90%; /* De balk schuift uit tot 80% van de logobreedte */
 }
 
 /* HAMBURGER MENU (Mobiel) */
@@ -272,7 +272,7 @@ main.portfolio-page-layout {
 }
 
 .featured-video-hero:hover > img {
-  transform: scale(1.15);
+  transform: scale(1.0);
 }
 
 /* HOVER CONTENT WRAPPER */
