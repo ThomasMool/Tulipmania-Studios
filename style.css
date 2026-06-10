@@ -25,7 +25,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 30px 24px 50px 24px;
-  z-index: 200;
+  z-index: 9999; /* Navigatie staat ALTIJD bovenop de content */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
@@ -49,7 +49,7 @@ nav {
 
 .nav-logo-top img {
   width: auto;
-  max-width: 90px; /* Logo is hier iets vergroot */
+  max-width: 90px; /* Groter logo */
   height: auto;
   display: block;
   opacity: 0.9;
@@ -92,7 +92,7 @@ nav .nav-links {
   display: flex;
   flex-direction: column;
   margin-top: 0;
-  align-items: flex-start; /* Links netjes aan de linkerkant */
+  align-items: flex-start;
 }
 
 nav .nav-links a {
@@ -216,7 +216,7 @@ main.portfolio-page-layout {
 }
 
 /* =========================================
-   PORTFOLIO GRID & CARDS
+   PORTFOLIO GRID & CARDS (Gecorrigeerde Hover)
    ========================================= */
 .portfolio-grid {
   display: grid;
@@ -238,16 +238,18 @@ main.portfolio-page-layout {
   text-decoration: none;
 }
 
-.featured-video-hero img {
+/* De standaard achtergrondafbeelding (image5.png) */
+.featured-video-hero > img {
   width: 100% !important;
   height: 100% !important;
   display: block !important;
   object-fit: cover;
-  transform: scale(1.10);       /* Uitgezoomd van 1.30 naar 1.10 */
-  object-position: center 30%; /* Iets naar beneden verschoven */
+  transform: scale(1.10);
+  object-position: center 30%;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Donkere filterlaag die over de achtergrond komt bij hover */
 .featured-video-hero::before {
   content: "";
   position: absolute;
@@ -269,38 +271,40 @@ main.portfolio-page-layout {
   box-shadow: 0 30px 60px rgba(255, 237, 254, 0.15);
 }
 
-.featured-video-hero:hover img {
-  transform: scale(1.15); /* Subtiele inzoom op hover vanaf de nieuwe basis */
+.featured-video-hero:hover > img {
+  transform: scale(1.15);
 }
 
-.hero-hover-content {
+/* HOVER LOGO AFBEELDING (image6.png) */
+.hero-hover-image {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
-  width: 80%;
-  text-align: center;
-  z-index: 3;
-  opacity: 0;
+  transform: translate(-50%, -40%); /* Start iets lager voor vloeiende animatie */
+  z-index: 3;                       /* Staat bovenop de donkere laag */
+  opacity: 0;                       /* Standaard onzichtbaar */
   visibility: hidden;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, visibility 0.4s;
   pointer-events: none;
 }
 
-.hero-hover-content h3 {
-  font-family: 'Lexend Exa', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #fcf0e3;
-  margin: 0;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+/* Formaat van de te verschijnen logo-afbeelding */
+.hero-hover-image img {
+  max-width: 180px; /* Pas deze breedte aan om de hover-afbeelding te vergroten/verkleinen */
+  height: auto;
+  display: block;
 }
 
-.featured-video-hero:hover .hero-hover-content {
+/* Activeert de logo-afbeelding zodra je over het blok hovert */
+.featured-video-hero:hover .hero-hover-image {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Schuift perfect naar het centrum */
+}
+
+.play-overlay-hint {
+  position: absolute;
+  z-index: 4;
 }
 
 /* =========================================
@@ -430,7 +434,6 @@ section#contact a:hover {
     opacity: 1;
   }
   
-  /* Verwijder logo-animatie op mobiel voor rustiger beeld */
   .nav-logo-top .logo-link::after {
     display: none;
   }
