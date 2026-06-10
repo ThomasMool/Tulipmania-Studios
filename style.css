@@ -30,26 +30,23 @@ nav {
 
 /* LOGO CONTAINER (AANGEPAST VOOR CENTRERING EN GROOTTE) */
 .nav-logo-top {
-  /* Zorgt voor centrering binnen de nav-breedte */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Ruimte onder het logo, boven de links */
+  justify-content: center; /* Horizontale centrering */
+  align-items: center;     /* Verticale centrering (voor de zekerheid) */
   margin-bottom: 50px; 
-  width: 100%;
+  width: 100%;             /* Zorgt dat hij de volledige breedte van de nav benut */
 }
 
 .nav-logo-top a {
-  display: block;
+  display: flex;           /* Flex toevoegen aan de link zelf */
+  justify-content: center;
 }
 
 .nav-logo-top img {
-  /* Grootte flink verkleind voor een subtielere look */
   width: auto;
-  max-width: 70px; /* Pas deze waarde aan voor de gewenste grootte */
+  max-width: 70px;         /* Je gewenste grootte */
   height: auto;
   display: block;
-  /* Voorkomt dat het logo te 'hard' oogt */
   opacity: 0.9;
   transition: opacity 0.3s ease;
 }
