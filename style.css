@@ -49,7 +49,7 @@ nav {
 
 .nav-logo-top img {
   width: auto;
-  max-width: 90px; /* Groter logo */
+  max-width: 90px; /* Groter logo in de sidebar */
   height: auto;
   display: block;
   opacity: 0.9;
@@ -216,7 +216,7 @@ main.portfolio-page-layout {
 }
 
 /* =========================================
-   PORTFOLIO GRID & CARDS (Gecorrigeerde Hover)
+   PORTFOLIO GRID & CARDS (Geanimeerde Logo & Tekst)
    ========================================= */
 .portfolio-grid {
   display: grid;
@@ -263,7 +263,7 @@ main.portfolio-page-layout {
 }
 
 .featured-video-hero:hover::before {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.70); /* Donkerder gezet voor leesbaarheid tekst */
 }
 
 .featured-video-hero:hover {
@@ -275,31 +275,90 @@ main.portfolio-page-layout {
   transform: scale(1.15);
 }
 
-/* HOVER LOGO AFBEELDING (image6.png) */
+/* HOVER CONTENT WRAPPER */
 .hero-hover-image {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%); /* Start iets lager voor vloeiende animatie */
-  z-index: 3;                       /* Staat bovenop de donkere laag */
-  opacity: 0;                       /* Standaard onzichtbaar */
+  transform: translate(-50%, -50%); /* Staat direct perfect in het midden */
+  z-index: 3;
+  opacity: 0;
   visibility: hidden;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease, visibility 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  height: 80%; /* Ruimte binnen het blok om elementen te verschuiven */
+  transition: opacity 0.4s ease, visibility 0.4s;
   pointer-events: none;
 }
 
-/* Formaat van de te verschijnen logo-afbeelding */
-.hero-hover-image img {
-  max-width: 300px; /* Pas deze breedte aan om de hover-afbeelding te vergroten/verkleinen */
-  height: auto;
-  display: block;
-}
-
-/* Activeert de logo-afbeelding zodra je over het blok hovert */
 .featured-video-hero:hover .hero-hover-image {
   opacity: 1;
   visibility: visible;
-  transform: translate(-50%, -50%); /* Schuift perfect naar het centrum */
+}
+
+/* HET HOVER LOGO (image6.png) */
+.hero-hover-image img {
+  max-width: 220px; /* Begingrootte: lekker groot in het midden */
+  height: auto;
+  display: block;
+  transform: translateY(0) scale(1);
+  transition: none; /* Voorkomt conflicten met keyframes */
+}
+
+/* Na 2 seconden: krimp het logo en schuif het omhoog */
+.featured-video-hero:hover .hero-hover-image img {
+  animation: shrinkAndMoveUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 2s; /* Wacht exact 2 seconden */
+}
+
+/* DE KORTE SAMENVATTING */
+.hero-hover-image .hover-summary {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fcf0e3;
+  text-align: center;
+  margin: 0;
+  max-width: 380px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  position: absolute;
+  bottom: 15%; /* Positioneert de tekst mooi aan de onderkant van het blok */
+  opacity: 0;  /* Begin onzichtbaar */
+}
+
+/* Na 2 seconden: laat de tekst vloeiend infaden */
+.featured-video-hero:hover .hover-summary {
+  animation: fadeInTextOnly 0.6s ease forwards;
+  animation-delay: 2s; /* Wacht even lang als de logo-animatie */
+}
+
+/* =========================================
+   ANIMATIE KEYFRAMES
+   ========================================= */
+
+/* Logo transformatie: krimpen naar 75% en 45px omhoog schuiven */
+@keyframes shrinkAndMoveUp {
+  from {
+    transform: translateY(0) scale(1);
+  }
+  to {
+    transform: translateY(-45px) scale(0.75);
+  }
+}
+
+/* Tekst transformatie: simpel en strak infaden */
+@keyframes fadeInTextOnly {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .play-overlay-hint {
