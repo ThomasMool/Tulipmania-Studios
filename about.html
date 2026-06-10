@@ -5,51 +5,44 @@
   <title>About Us - Tulipmania Studios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
   
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/image4.png">
 </head>
 <body class="about-page">
 
-<!-- NAVIGATION -->
 <nav>
-  <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
+  <div class="nav-logo-top">
+    <a href="index.html">
+      <img src="images/image4.png" alt="Tulipmania Studios Logo">
+    </a>
+  </div>
+
   <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+  
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="about.html" class="active">About Us</a>
     <a href="contact.html">Contact</a>
   </div> 
-
-  <!-- Pinned Logo Container -->
-  <div class="nav-logo">
-    <img src="images/image1.png" alt="Tulipmania Studios Logo">
-  </div>
 </nav>
 
-<!-- TEXT OVERLAY PANEL -->
-<!-- Kept exactly intact; your CSS handles the slide-in animation over the background -->
 <div class="about-text-panel">
   <h2 class="underline-accent">Our Story</h2>
   <p>What started small during their teenage years has grown into something bigger. Tulipmania Studios is a Dutch group of young filmmakers that loves everything about filming. From colouring to sound design, we aim to do everything by ourselves; Creating handcrafted and unique films.</p>
-  <p>At the core of Tulipmania Studios are Maarten Moolenaar, Noah Enderlé and Thomas Moolenaar. While working full-time, Maarten wrote de script for 'De Momentenvanger', creating the blueprint for his biggest filmproject to date. To help with cinematography and sound, he asked Noah and Thomas to help. Maarten's brother Thomas was working with films and sound his whole life, with Noah behind the camera directing lighting, perspective and colours.</p>
+  <p>At the core of Tulipmania Studios are Maarten Moolenaar, Noah Enderlé and Thomas Moolenaar. While working full-time, Maarten wrote the script for 'De Momentenvanger', creating the blueprint for his biggest film project to date. To help with cinematography and sound, he asked Noah and Thomas to help. Maarten's brother Thomas was working with films and sound his whole life, with Noah behind the camera directing lighting, perspective and colours.</p>
   <p>We from Tulipmania Studios invite you to join our creative journey, and hope to share with you the love and passion we feel for filming! </p>
 </div>
   
-<!-- FULL SCREEN BACKGROUND IMAGE LAYER -->
-<!-- Placed globally to stretch edge-to-edge, behind the navigation and text panel -->
 <section id="hero">
   <div class="hero-slide">
     <img src="images/image7.JPG" alt="About us background picture" style="opacity: 1;">
   </div>
 </section>
 
-<!-- MOBILE NAV SCRIPT -->
 <script>
 function toggleNav() {
   document.querySelector('.nav-links').classList.toggle('show');
