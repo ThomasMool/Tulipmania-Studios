@@ -21,23 +21,41 @@ nav {
   background: rgba(0,0,0,0.85);
   display: flex;
   flex-direction: column;
-  padding: 50px 24px; 
+  /* padding aangepast: minder top padding, horizontaal behouden */
+  padding: 30px 24px 50px 24px; 
   z-index: 200;
   box-shadow: 2px 0 10px rgba(0,0,0,0.5);
   box-sizing: border-box;
 }
 
-/* LOGO BOVENAAN (Vervangt oude nav-title en nav-logo) */
+/* LOGO CONTAINER (AANGEPAST VOOR CENTRERING EN GROOTTE) */
 .nav-logo-top {
-  margin-bottom: 40px;
-  text-align: left;
+  /* Zorgt voor centrering binnen de nav-breedte */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ruimte onder het logo, boven de links */
+  margin-bottom: 50px; 
+  width: 100%;
+}
+
+.nav-logo-top a {
+  display: block;
 }
 
 .nav-logo-top img {
-  width: 100%;
-  max-width: 100px; 
+  /* Grootte flink verkleind voor een subtielere look */
+  width: auto;
+  max-width: 70px; /* Pas deze waarde aan voor de gewenste grootte */
   height: auto;
   display: block;
+  /* Voorkomt dat het logo te 'hard' oogt */
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.nav-logo-top a:hover img {
+  opacity: 1;
 }
 
 nav .hamburger {
@@ -51,7 +69,10 @@ nav .hamburger {
 nav .nav-links {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  /* margin-top verlaagd omdat .nav-logo-top al margin-bottom heeft */
+  margin-top: 0;
+  /* Tekstlinks ook horizontaal centreren voor een gebalanceerd geheel */
+  align-items: center; 
 }
 
 nav a {
@@ -70,7 +91,9 @@ nav a {
 nav a::after {
   content: "";
   position: absolute;
-  left: 0;
+  /* After element ook centreren onder de tekst */
+  left: 50%;
+  transform: translateX(-50%);
   bottom: -4px;
   width: 0;
   height: 2px;
@@ -80,13 +103,14 @@ nav a::after {
 
 nav a:hover::after,
 nav a.active::after {
-  width: 100%;
+  /* Breedte van de underline bij hover/actief */
+  width: 80%; 
 }
 
 nav a:hover,
 nav a.active {
   color: #ffedfe;
-  transform: translateX(5px);
+  /* translateX verwijderd, centrering is nu leidend */
   font-weight: 700;
 }
 
@@ -350,4 +374,25 @@ section#contact a:hover { color: #ff6f61; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  nav { width: 100%; height: auto; flex-direction: row; justify-content: space-between; align-items: center; padding: 10px 20px; position: fixed; background: rgba(0,0,0,0.9); z-index:
+  nav { width: 100%; height: auto; flex-direction: row; justify-content: space-between; align-items: center; padding: 10px 20px; position: fixed; background: rgba(0,0,0,0.9); z-index: 250; }
+  
+  .nav-logo-top { margin-bottom: 0; width: auto; }
+  .nav-logo-top img { max-width: 50px; opacity: 1; }
+  
+  .about-text-panel { position: relative; left: 0; top: 0; width: 100%; height: auto; padding: 90px 20px 40px 20px; transform: none; animation: none; background: rgba(30, 30, 30, 0.92); z-index: 40; box-sizing: border-box; }
+  main { padding: 60px 0 0 0 !important; margin-left: 0; }
+  main.inner-page { margin-left: 0; padding: 20px; padding-top: 80px; }
+  main.portfolio-page-layout { margin-left: 0 !important; padding: 80px 20px 20px 20px !important; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .featured-video-hero { height: 250px !important; }
+  .hero-text { position: fixed; left: 50%; top: 50%; width: 100%; padding: 0 24px; }
+  main.inner-page .hero-text { position: absolute; }
+  .hero-text h2 { font-size: 1.8rem; }
+  
+  nav .hamburger { display: block; margin-bottom: 0; }
+  nav .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; right: 20px; background: rgba(10,10,10,0.95); padding: 20px; border-radius: 8px; z-index: 50; width: 150px; align-items: flex-start; /* Links op mobiel links uitlijnen */ }
+  nav .nav-links.show { display: flex; }
+  
+  nav a { font-size: 16px; margin-bottom: 15px; }
+  nav a::after { left: 0; transform: none; } /* Underline op mobiel links */
+}
