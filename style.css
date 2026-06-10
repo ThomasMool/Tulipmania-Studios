@@ -49,7 +49,7 @@ nav {
 
 .nav-logo-top img {
   width: auto;
-  max-width: 90px; /* Groter logo in de sidebar */
+  max-width: 110px; /* Groter logo in de sidebar */
   height: auto;
   display: block;
   opacity: 0.9;
