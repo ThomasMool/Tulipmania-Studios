@@ -13,7 +13,7 @@ html, body {
 }
 
 /* =========================================
-   NAVIGATION
+   NAVIGATION & LOGO
    ========================================= */
 nav {
   width: 240px;
@@ -30,6 +30,7 @@ nav {
   box-sizing: border-box;
 }
 
+/* LOGO CONTAINER */
 .nav-logo-top {
   display: flex;
   justify-content: center;
@@ -38,24 +39,46 @@ nav {
   width: 100%;
 }
 
-.nav-logo-top a {
-  display: flex;
-  justify-content: center;
+/* De link om het logo - Belangrijk voor gecentreerde animatie */
+.nav-logo-top .logo-link {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 12px; /* Ruimte voor de balk onder het logo */
+  text-decoration: none;
 }
 
 .nav-logo-top img {
   width: auto;
-  max-width: 70px;
+  max-width: 90px; /* Logo is hier iets vergroot */
   height: auto;
   display: block;
   opacity: 0.9;
   transition: opacity 0.3s ease;
 }
 
-.nav-logo-top a:hover img {
+/* SLIDING BAR UNDER LOGO (Gecentreerd vanuit het midden) */
+.nav-logo-top .logo-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;                 /* Start exact in het midden */
+  transform: translateX(-50%); /* Houdt de lijn gecentreerd tijdens het groeien */
+  bottom: 0;
+  width: 0;                  /* Beginbreedte is nul */
+  height: 2px;
+  background: #ffedfe;
+  transition: width 0.3s ease;
+}
+
+/* Hover effect voor het logo */
+.nav-logo-top .logo-link:hover img {
   opacity: 1;
 }
 
+.nav-logo-top .logo-link:hover::after {
+  width: 80%; /* De balk schuift uit tot 80% van de logobreedte */
+}
+
+/* HAMBURGER MENU (Mobiel) */
 nav .hamburger {
   display: none;
   font-size: 28px;
@@ -64,14 +87,15 @@ nav .hamburger {
   margin-bottom: 20px;
 }
 
+/* NAVIGATION LINKS (Menu links onder het logo) */
 nav .nav-links {
   display: flex;
   flex-direction: column;
   margin-top: 0;
-  align-items: flex-start;
+  align-items: flex-start; /* Links netjes aan de linkerkant */
 }
 
-nav a {
+nav .nav-links a {
   text-decoration: none;
   text-transform: uppercase;
   color: #e3e3e3;
@@ -84,10 +108,11 @@ nav a {
   transition: color 0.3s ease;
 }
 
-nav a::after {
+/* SLIDING BAR FOR TEXT LINKS (Start vanaf links) */
+nav .nav-links a::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 0; /* Start helemaal links */
   bottom: -4px;
   width: 0;
   height: 2px;
@@ -95,13 +120,13 @@ nav a::after {
   transition: width 0.3s ease;
 }
 
-nav a:hover::after,
-nav a.active::after {
-  width: 100%;
+nav .nav-links a:hover::after,
+nav .nav-links a.active::after {
+  width: 100%; /* Groeit van links naar rechts */
 }
 
-nav a:hover,
-nav a.active {
+nav .nav-links a:hover,
+nav .nav-links a.active {
   color: #ffedfe;
   font-weight: 700;
 }
@@ -165,9 +190,12 @@ main.portfolio-page-layout ~ #hero .hero-slide img,
 }
 
 /* =========================================
-   LAYOUT & MAIN
+   LAYOUT & MAIN PAGES
    ========================================= */
-main { margin-left: 240px; height: 100vh; }
+main {
+  margin-left: 240px;
+  height: 100vh;
+}
 
 main.inner-page {
   margin-left: 240px;
@@ -188,7 +216,7 @@ main.portfolio-page-layout {
 }
 
 /* =========================================
-   PORTFOLIO COMPONENTS
+   PORTFOLIO GRID & CARDS
    ========================================= */
 .portfolio-grid {
   display: grid;
@@ -215,8 +243,8 @@ main.portfolio-page-layout {
   height: 100% !important;
   display: block !important;
   object-fit: cover;
-  transform: scale(1.10);
-  object-position: center 30%;
+  transform: scale(1.10);       /* Uitgezoomd van 1.30 naar 1.10 */
+  object-position: center 30%; /* Iets naar beneden verschoven */
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -232,14 +260,18 @@ main.portfolio-page-layout {
   transition: background 0.4s ease;
 }
 
-.featured-video-hero:hover::before { background: rgba(0, 0, 0, 0.55); }
+.featured-video-hero:hover::before {
+  background: rgba(0, 0, 0, 0.55);
+}
 
 .featured-video-hero:hover {
   transform: translateY(-4px);
   box-shadow: 0 30px 60px rgba(255, 237, 254, 0.15);
 }
 
-.featured-video-hero:hover img { transform: scale(1.15); }
+.featured-video-hero:hover img {
+  transform: scale(1.15); /* Subtiele inzoom op hover vanaf de nieuwe basis */
+}
 
 .hero-hover-content {
   position: absolute;
@@ -322,7 +354,9 @@ main.portfolio-page-layout {
   background: #ffedfe;
 }
 
-@keyframes slideOut { to { transform: translateX(0); } }
+@keyframes slideOut {
+  to { transform: translateX(0); }
+}
 
 /* =========================================
    GALLERIES & CONTACT
@@ -361,11 +395,17 @@ main.portfolio-page-layout {
   cursor: pointer;
 }
 
-section#contact a { color: #f2c94c; text-decoration: none; }
-section#contact a:hover { color: #ff6f61; }
+section#contact a {
+  color: #f2c94c;
+  text-decoration: none;
+}
+
+section#contact a:hover {
+  color: #ff6f61;
+}
 
 /* =========================================
-   RESPONSIVE
+   RESPONSIVE (MOBILE)
    ========================================= */
 @media (max-width: 768px) {
   nav {
@@ -380,8 +420,20 @@ section#contact a:hover { color: #ff6f61; }
     z-index: 250;
   }
 
-  .nav-logo-top { margin-bottom: 0; width: auto; }
-  .nav-logo-top img { max-width: 50px; opacity: 1; }
+  .nav-logo-top {
+    margin-bottom: 0;
+    width: auto;
+  }
+  
+  .nav-logo-top img {
+    max-width: 50px;
+    opacity: 1;
+  }
+  
+  /* Verwijder logo-animatie op mobiel voor rustiger beeld */
+  .nav-logo-top .logo-link::after {
+    display: none;
+  }
 
   .about-text-panel {
     position: relative;
@@ -397,16 +449,51 @@ section#contact a:hover { color: #ff6f61; }
     box-sizing: border-box;
   }
 
-  main { padding: 60px 0 0 0 !important; margin-left: 0; }
-  main.inner-page { margin-left: 0; padding: 20px; padding-top: 80px; }
-  main.portfolio-page-layout { margin-left: 0 !important; padding: 80px 20px 20px 20px !important; }
-  .portfolio-grid { grid-template-columns: 1fr; }
-  .featured-video-hero { height: 250px !important; }
-  .hero-text { position: fixed; left: 50%; top: 50%; width: 100%; padding: 0 24px; }
-  main.inner-page .hero-text { position: absolute; }
-  .hero-text h2 { font-size: 1.8rem; }
+  main {
+    padding: 60px 0 0 0 !important;
+    margin-left: 0;
+  }
+  
+  main.inner-page {
+    margin-left: 0;
+    padding: 20px;
+    padding-top: 80px;
+  }
+  
+  main.portfolio-page-layout {
+    margin-left: 0 !important;
+    padding: 80px 20px 20px 20px !important;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .featured-video-hero {
+    height: 250px !important;
+  }
+  
+  .hero-text {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    padding: 0 24px;
+  }
+  
+  main.inner-page .hero-text {
+    position: absolute;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
 
-  nav .hamburger { display: block; margin-bottom: 0; }
+  nav .hamburger {
+    display: block;
+    margin-bottom: 0;
+  }
+  
   nav .nav-links {
     display: none;
     flex-direction: column;
@@ -420,7 +507,18 @@ section#contact a:hover { color: #ff6f61; }
     width: 150px;
     align-items: flex-start;
   }
-  nav .nav-links.show { display: flex; }
-  nav a { font-size: 16px; margin-bottom: 15px; }
-  nav a::after { left: 0; transform: none; }
+  
+  nav .nav-links.show {
+    display: flex;
+  }
+  
+  nav a {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  nav a::after {
+    left: 0;
+    transform: none;
+  }
 }
