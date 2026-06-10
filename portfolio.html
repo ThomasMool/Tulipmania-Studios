@@ -5,10 +5,8 @@
   <title>Portfolio - Tulipmania Studios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/image4.png">
@@ -16,9 +14,12 @@
 
 <body>
 
-<!-- NAVIGATION -->
 <nav>
-  <a href="index.html" class="nav-title">TULIPMANIA STUDIOS</a>
+  <div class="nav-logo-top">
+    <a href="index.html">
+      <img src="images/image4.png" alt="Tulipmania Studios Logo">
+    </a>
+  </div>
 
   <div class="hamburger" onclick="toggleNav()">
     &#9776;
@@ -30,38 +31,28 @@
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact</a>
   </div>
-
-  <!-- Pinned Logo Container -->
-  <div class="nav-logo">
-    <img src="images/image4.png" alt="Tulipmania Studios Logo">
-  </div>
 </nav>
 
-<!-- FULL SCREEN BACKGROUND IMAGE LAYER (Sits behind everything) -->
 <section id="hero">
   <div class="hero-slide">
     <img src="images/image3.jpg" alt="Portfolio Background" style="opacity: 1;">
   </div>
 </section>
 
-<!-- MAIN CONTENT WORKSPACE (Forced forward via z-index) -->
 <main class="portfolio-page-layout">
   
-  <!-- TOP THIRD FEATURED CARD -->
   <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="featured-video-hero">
     <img src="images/image5.png" alt="Featured Project - Watch on YouTube">
     
-    <!-- Hover Text Overlay Content -->
-<div class="hero-hover-image">
-  <img src="images/image6.png" alt="Project Details">
-</div>
+    <div class="hero-hover-image">
+      <img src="images/image6.png" alt="Project Details">
+    </div>
 
     <div class="play-overlay-hint"></div>
   </a>
 
 </main>
 
-<!-- MOBILE NAV SCRIPT -->
 <script>
 function toggleNav() {
   document.querySelector('.nav-links').classList.toggle('show');
