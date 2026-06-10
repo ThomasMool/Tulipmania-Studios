@@ -331,7 +331,7 @@ main.portfolio-page-layout {
     transform: translateY(0) scale(1);
   }
   to {
-    transform: translateY(-80px) scale(0.62); 
+    transform: translateY(-90px) scale(0.42); 
   }
 }
 
@@ -352,7 +352,7 @@ main.portfolio-page-layout {
 }
 
 /* =========================================
-   SLIDING PANEL (Gebruikt voor About én Contact)
+   SLIDING PANEL
    ========================================= */
 .about-text-panel {
   position: fixed;
@@ -403,7 +403,6 @@ main.portfolio-page-layout {
   background: #ffedfe;
 }
 
-/* Stijl voor de e-mail link in het contactpaneel */
 .contact-email-link {
   color: #ffedfe;
   text-decoration: none;
@@ -513,7 +512,7 @@ main.portfolio-page-layout {
   
   main.inner-page {
     margin-left: 0;
-    padding: 0; /* Haalt extra padding weg zodat paneel aansluit */
+    padding: 0;
     padding-top: 0;
   }
   
@@ -578,9 +577,12 @@ main.portfolio-page-layout {
     font-size: 1.8rem;
   }
 
+  /* HIER IS DE BURGER OP MOBIEL VERGROOT */
   nav .hamburger {
     display: block;
     margin-bottom: 0;
+    font-size: 38px; /* <--- VERHOOGD (was 28px) voor een groter icoon */
+    padding: 5px 10px; /* Geeft wat meer aanraakruimte */
   }
   
   nav .nav-links {
