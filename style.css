@@ -13,7 +13,7 @@ html, body {
 }
 
 /* =========================================
-   NAVIGATION & LOGO
+   NAVIGATION & LOGO (Zijbalk Desktop)
    ========================================= */
 nav {
   width: 240px;
@@ -25,12 +25,11 @@ nav {
   display: flex;
   flex-direction: column;
   padding: 30px 24px 50px 24px;
-  z-index: 9999; /* Navigatie staat ALTIJD bovenop de content */
+  z-index: 9999;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
-/* LOGO CONTAINER */
 .nav-logo-top {
   display: flex;
   justify-content: center;
@@ -39,46 +38,42 @@ nav {
   width: 100%;
 }
 
-/* De link om het logo - Belangrijk voor gecentreerde animatie */
 .nav-logo-top .logo-link {
   display: inline-block;
   position: relative;
-  padding-bottom: 12px; /* Ruimte voor de balk onder het logo */
+  padding-bottom: 12px;
   text-decoration: none;
 }
 
 .nav-logo-top img {
   width: auto;
-  max-width: 110px; /* Groter logo in de sidebar */
+  max-width: 140px; 
   height: auto;
   display: block;
   opacity: 0.9;
   transition: opacity 0.3s ease;
 }
 
-/* SLIDING BAR UNDER LOGO (Gecentreerd vanuit het midden) */
 .nav-logo-top .logo-link::after {
   content: "";
   position: absolute;
-  left: 50%;                 /* Start exact in het midden */
-  transform: translateX(-50%); /* Houdt de lijn gecentreerd tijdens het groeien */
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
-  width: 0;                  /* Beginbreedte is nul */
+  width: 0;
   height: 2px;
   background: #ffedfe;
   transition: width 0.3s ease;
 }
 
-/* Hover effect voor het logo */
 .nav-logo-top .logo-link:hover img {
   opacity: 1;
 }
 
 .nav-logo-top .logo-link:hover::after {
-  width: 80%; /* De balk schuift uit tot 80% van de logobreedte */
+  width: 80%;
 }
 
-/* HAMBURGER MENU (Mobiel) */
 nav .hamburger {
   display: none;
   font-size: 28px;
@@ -87,7 +82,6 @@ nav .hamburger {
   margin-bottom: 20px;
 }
 
-/* NAVIGATION LINKS (Menu links onder het logo) */
 nav .nav-links {
   display: flex;
   flex-direction: column;
@@ -108,11 +102,10 @@ nav .nav-links a {
   transition: color 0.3s ease;
 }
 
-/* SLIDING BAR FOR TEXT LINKS (Start vanaf links) */
 nav .nav-links a::after {
   content: "";
   position: absolute;
-  left: 0; /* Start helemaal links */
+  left: 0;
   bottom: -4px;
   width: 0;
   height: 2px;
@@ -122,7 +115,7 @@ nav .nav-links a::after {
 
 nav .nav-links a:hover::after,
 nav .nav-links a.active::after {
-  width: 100%; /* Groeit van links naar rechts */
+  width: 100%;
 }
 
 nav .nav-links a:hover,
@@ -216,7 +209,7 @@ main.portfolio-page-layout {
 }
 
 /* =========================================
-   PORTFOLIO GRID & CARDS (Geanimeerde Logo & Tekst)
+   PORTFOLIO GRID & CARDS (Desktop)
    ========================================= */
 .portfolio-grid {
   display: grid;
@@ -243,12 +236,11 @@ main.portfolio-page-layout {
   height: 100% !important;
   display: block !important;
   object-fit: cover;
-  transform: scale(1.10);
+  transform: scale(1.00); 
   object-position: center 30%;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Donkere filterlaag die over de achtergrond komt bij hover */
 .featured-video-hero::before {
   content: "";
   position: absolute;
@@ -262,7 +254,7 @@ main.portfolio-page-layout {
 }
 
 .featured-video-hero:hover::before {
-  background: rgba(0, 0, 0, 0.70);
+  background: rgba(0, 0, 0, 0.75);
 }
 
 .featured-video-hero:hover {
@@ -271,7 +263,7 @@ main.portfolio-page-layout {
 }
 
 .featured-video-hero:hover > img {
-  transform: scale(1.15);
+  transform: scale(1.05); 
 }
 
 /* HOVER CONTENT WRAPPER */
@@ -287,8 +279,8 @@ main.portfolio-page-layout {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 85%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   transition: opacity 0.4s ease, visibility 0.4s;
   pointer-events: none;
 }
@@ -300,17 +292,17 @@ main.portfolio-page-layout {
 
 /* HET HOVER LOGO (image6.png) */
 .hero-hover-image img {
-  max-width: 700px; /* <--- VERHOOGD: Begint nu een flink stuk groter in de eerste 2 seconden */
+  max-width: 450px;
+  width: 100%;
   height: auto;
   display: block;
   transform: translateY(0) scale(1);
   transition: none;
 }
 
-/* Na 2 seconden: krimp het logo en schuif het omhoog */
 .featured-video-hero:hover .hero-hover-image img {
   animation: shrinkAndMoveUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  animation-delay: 1.5s;
+  animation-delay: 2s;
 }
 
 /* DE KORTE SAMENVATTING */
@@ -321,17 +313,16 @@ main.portfolio-page-layout {
   color: #fcf0e3;
   text-align: center;
   margin: 0;
-  max-width: 600px;
+  max-width: 500px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
   position: absolute;
-  bottom: 12%; /* Iets lager gezet zodat de tekst ruimte heeft voor het grotere logo */
+  bottom: 8%;
   opacity: 0;
 }
 
-/* Na 2 seconden: laat de tekst vloeiend infaden */
 .featured-video-hero:hover .hover-summary {
   animation: fadeInTextOnly 0.6s ease forwards;
-  animation-delay: 1.5s;
+  animation-delay: 2s;
 }
 
 /* =========================================
@@ -342,8 +333,7 @@ main.portfolio-page-layout {
     transform: translateY(0) scale(1);
   }
   to {
-    /* Schuift iets verder omhoog (-65px) en krimpt netjes naar 65% van de nieuwe begingrootte */
-    transform: translateY(-90px) scale(0.65); 
+    transform: translateY(-90px) scale(0.42); 
   }
 }
 
@@ -465,7 +455,7 @@ section#contact a:hover {
 }
 
 /* =========================================
-   RESPONSIVE (MOBILE)
+   RESPONSIVE (MOBILE ADJUSTMENTS)
    ========================================= */
 @media (max-width: 768px) {
   nav {
@@ -519,9 +509,14 @@ section#contact a:hover {
     padding-top: 80px;
   }
   
+  /* MOBIELE RUIMTE: Schuift de layout naar beneden zodat het niet achter het hamburger menu valt */
   main.portfolio-page-layout {
     margin-left: 0 !important;
-    padding: 80px 20px 20px 20px !important;
+    padding: 20px !important;
+    margin-top: 110px !important; /* <--- KREERT RUIMTE ONDER DE TOP BAR */
+    box-sizing: border-box;
+    display: flex !important;
+    flex-direction: column;
   }
   
   .portfolio-grid {
@@ -530,6 +525,35 @@ section#contact a:hover {
   
   .featured-video-hero {
     height: 250px !important;
+  }
+
+  /* ZET HOVER EFFECTEN UIT OP MOBIEL EN FIXEER HET LOGO IN HET MIDDEN */
+  .featured-video-hero::before {
+    background: rgba(0, 0, 0, 0.4) !important; /* Altijd een subtiele donkere laag zodat het witte logo leesbaar is */
+  }
+
+  .featured-video-hero:hover {
+    transform: none !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9) !important;
+  }
+
+  .featured-video-hero:hover > img {
+    transform: scale(1.00) !important; /* Geen zoom op mobiel */
+  }
+
+  .hero-hover-image {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .hero-hover-image img {
+    max-width: 220px !important; /* Nette, compacte grootte voor mobiele schermen */
+    transform: none !important;
+    animation: none !important; /* Schakel krimp/schuif-animatie uit */
+  }
+
+  .hero-hover-image .hover-summary {
+    display: none !important; /* Verberg de samenvatting op mobiel voor een strakker beeld */
   }
   
   .hero-text {
