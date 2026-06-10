@@ -4,26 +4,23 @@
   <meta charset="UTF-8">
   <title>Portfolio - Tulipmania Studios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
-
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/image4.png">
 </head>
-
 <body>
 
+<!-- NAVIGATION -->
 <nav>
   <div class="nav-logo-top">
-    <a href="index.html">
+    <!-- Gecorrigeerd met class="logo-link" voor de gecentreerde hover-balk -->
+    <a href="index.html" class="logo-link">
       <img src="images/image4.png" alt="Tulipmania Studios Logo">
     </a>
   </div>
 
-  <div class="hamburger" onclick="toggleNav()">
-    &#9776;
-  </div>
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
 
   <div class="nav-links">
     <a href="index.html">Home</a>
@@ -33,12 +30,15 @@
   </div>
 </nav>
 
+<!-- BACKGROUND HERO -->
 <section id="hero">
   <div class="hero-slide">
-    <img src="images/image3.jpg" alt="Portfolio Background" style="opacity: 1;">
+    <!-- Inline style vervangen door class="active" conform de CSS -->
+    <img src="images/image3.jpg" alt="Portfolio Background" class="active">
   </div>
 </section>
 
+<!-- MAIN CONTENT -->
 <main class="portfolio-page-layout">
   
   <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="featured-video-hero">
@@ -53,11 +53,11 @@
 
 </main>
 
+<!-- MOBILE NAV SCRIPT -->
 <script>
 function toggleNav() {
   document.querySelector('.nav-links').classList.toggle('show');
 }
 </script>
-
 </body>
 </html>
