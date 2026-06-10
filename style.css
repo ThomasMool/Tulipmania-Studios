@@ -290,7 +290,7 @@ main.portfolio-page-layout {
 
 /* Formaat van de te verschijnen logo-afbeelding */
 .hero-hover-image img {
-  max-width: 180px; /* Pas deze breedte aan om de hover-afbeelding te vergroten/verkleinen */
+  max-width: 300px; /* Pas deze breedte aan om de hover-afbeelding te vergroten/verkleinen */
   height: auto;
   display: block;
 }
