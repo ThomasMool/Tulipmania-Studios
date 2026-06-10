@@ -343,7 +343,7 @@ main.portfolio-page-layout {
   }
   to {
     /* Schuift iets verder omhoog (-65px) en krimpt netjes naar 65% van de nieuwe begingrootte */
-    transform: translateY(-100px) scale(0.65); 
+    transform: translateY(-90px) scale(0.65); 
   }
 }
 
