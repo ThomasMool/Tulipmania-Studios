@@ -320,7 +320,7 @@ main.portfolio-page-layout {
     transform: translateY(0) scale(1);
   }
   to {
-    transform: translateY(-110px) scale(0.60); 
+    transform: translateY(-90px) scale(0.65); 
   }
 }
 
