@@ -331,7 +331,7 @@ main.portfolio-page-layout {
     transform: translateY(0) scale(1);
   }
   to {
-    transform: translateY(-70px) scale(0.42); 
+    transform: translateY(-90px) scale(0.65); 
   }
 }
 
