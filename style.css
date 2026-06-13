@@ -13,43 +13,44 @@ html, body {
 }
 
 /* =========================================
-   NAVIGATION BAR (Nu horizontaal aan de top)
+   NAVIGATION BAR
    ========================================= */
 nav {
   width: 100%;
-  height: 80px; /* Vaste hoogte voor de topbar */
+  height: 140px; 
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.9); /* Iets donkerder voor betere leesbaarheid over foto's */
+  background: rgba(0, 0, 0, 0.9);
   display: flex;
-  flex-direction: row; /* Zet elementen naast elkaar */
-  justify-content: space-between; /* Logo links, links rechts */
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  padding: 0px 40px; /* Ruimte aan de zijkanten */
+  padding: 0px 50px; 
   z-index: 9999;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
   box-sizing: border-box;
 }
 
-/* LOGO LINKSBOVEN */
 .nav-logo-top {
   display: flex;
   align-items: center;
-  margin-bottom: 0; /* Reset de oude marge */
+  margin-bottom: 0;
   width: auto;
+  height: 100%;
 }
 
 .nav-logo-top .logo-link {
-  display: inline-block;
-  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
   text-decoration: none;
 }
 
 .nav-logo-top img {
   width: auto;
-  max-width: 110px; /* Iets compacter gemaakt voor de topbar */
-  height: auto;
+  max-width: 200px;  
+  max-height: 100px; 
   display: block;
   opacity: 0.9;
   transition: opacity 0.3s ease;
@@ -59,18 +60,16 @@ nav {
   opacity: 1;
 }
 
-/* HAMBURGER MENU (Verborgen op desktop) */
 nav .hamburger {
   display: none;
-  font-size: 38px;
+  font-size: 42px; 
   color: #fcf0e3;
   cursor: pointer;
 }
 
-/* NAVIGATIE LINKS RECHTSBOVEN */
 nav .nav-links {
   display: flex;
-  flex-direction: row; /* Links horizontaal naast elkaar */
+  flex-direction: row;
   margin-top: 0;
   align-items: center;
 }
@@ -79,11 +78,11 @@ nav .nav-links a {
   text-decoration: none;
   text-transform: uppercase;
   color: #e3e3e3;
-  font-size: 16px; /* Iets verfijnder voor de topbar */
+  font-size: 22px; 
   font-weight: 400;
-  letter-spacing: 1px;
-  margin-left: 35px; /* Ruimte tussen de linkjes */
-  margin-bottom: 0; /* Reset oude verticale marge */
+  letter-spacing: 1.5px;
+  margin-left: 50px; 
+  margin-bottom: 0;
   position: relative;
   display: inline-block;
   transition: color 0.3s ease;
@@ -93,7 +92,7 @@ nav .nav-links a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -4px;
+  bottom: -6px;
   width: 0;
   height: 2px;
   background: #ffedfe;
@@ -148,7 +147,7 @@ main.portfolio-page-layout ~ #hero .hero-slide img,
 
 .hero-text {
   position: fixed;
-  top: 55%; /* Iets naar beneden gecorrigeerd vanwege de topbar */
+  top: 58%; 
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 150;
@@ -170,31 +169,33 @@ main.portfolio-page-layout ~ #hero .hero-slide img,
 }
 
 /* =========================================
-   LAYOUT & MAIN PAGES (Aangepast voor topbar)
+   LAYOUT & MAIN PAGES
    ========================================= */
 main {
-  margin-left: 0; /* Marge aan de linkerkant weggehaald */
-  padding-top: 80px; /* Ruimte maken zodat content onder de nav valt */
+  margin-left: 0;
+  padding-top: 140px; 
   height: 100vh;
   box-sizing: border-box;
 }
 
 main.inner-page {
   margin-left: 0;
-  padding: 120px 40px 40px 40px; /* Meer padding aan de bovenkant vanwege de nav */
+  padding: 180px 40px 40px 40px; 
   box-sizing: border-box;
   height: auto;
 }
 
 main.portfolio-page-layout {
   margin-left: 0;
+  min-height: 100vh;
   height: auto;
   position: relative !important;
   z-index: 99 !important;
-  padding: 120px 40px 40px 40px; /* Ruimte aan de bovenkant voor de nav */
+  padding: 180px 40px 40px 40px; 
   box-sizing: border-box;
   display: flex !important;
   flex-direction: column;
+  background-color: #000000; 
 }
 
 /* =========================================
@@ -202,14 +203,16 @@ main.portfolio-page-layout {
    ========================================= */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 30px;
+  grid-template-columns: 1fr; 
+  gap: 40px; 
   width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
 .featured-video-hero {
   width: 100% !important;
-  height: 400px !important; /* Iets hoger gemaakt nu er meer horizontale ruimte is */
+  height: 400px !important;
   position: relative;
   display: block !important;
   border-radius: 12px;
@@ -226,8 +229,17 @@ main.portfolio-page-layout {
   display: block !important;
   object-fit: cover;
   transform: scale(1.00); 
-  object-position: center 30%;
+  object-position: center center; 
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* VERTICALE UITLIJNING PER BOX */
+.featured-video-hero:nth-child(1) > img {
+  object-position: center 45%; 
+}
+
+.featured-video-hero:nth-child(2) > img {
+  object-position: center 55%; 
 }
 
 .featured-video-hero::before {
@@ -303,7 +315,7 @@ main.portfolio-page-layout {
   max-width: 500px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
   position: absolute;
-  bottom: 8%;
+  bottom: 12%; 
   opacity: 0;
 }
 
@@ -320,7 +332,7 @@ main.portfolio-page-layout {
     transform: translateY(0) scale(1);
   }
   to {
-    transform: translateY(-90px) scale(0.65); 
+    transform: translateY(-60px) scale(0.65); 
   }
 }
 
@@ -341,14 +353,14 @@ main.portfolio-page-layout {
 }
 
 /* =========================================
-   SLIDING PANEL (About & Contact - Nu vanaf de zijkant onder de topbar)
+   SLIDING PANEL & LINKS
    ========================================= */
 .about-text-panel {
   position: fixed;
-  top: 80px; /* Begint direct onder de topbar */
+  top: 140px; 
   left: 0;
   width: 420px;
-  height: calc(100vh - 80px); /* Vult de rest van het scherm */
+  height: calc(100vh - 140px); 
   background: rgba(30, 30, 30, 0.95);
   box-sizing: border-box;
   padding: 40px;
@@ -392,7 +404,9 @@ main.portfolio-page-layout {
   background: #ffedfe;
 }
 
-.contact-email-link {
+/* CONTACT LINKS STYLING */
+.contact-email-link,
+.contact-social-link {
   color: #ffedfe;
   text-decoration: none;
   font-weight: 700;
@@ -400,7 +414,8 @@ main.portfolio-page-layout {
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 
-.contact-email-link:hover {
+.contact-email-link:hover,
+.contact-social-link:hover {
   color: #fcf0e3;
   border-bottom: 1px solid #fcf0e3;
 }
@@ -452,23 +467,25 @@ main.portfolio-page-layout {
 @media (max-width: 768px) {
   nav {
     padding: 10px 20px;
-    height: 70px;
+    height: 90px; 
   }
 
   .nav-logo-top img {
-    max-width: 50px;
+    max-width: 60px; 
+    max-height: 70px;
   }
 
   nav .hamburger {
     display: block;
+    font-size: 38px;
+    padding: 5px 10px;
   }
   
-  /* Mobiel menu schuift nu mooi van boven uit */
   nav .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 90px; 
     right: 20px;
     background: rgba(10, 10, 10, 0.95);
     padding: 20px;
@@ -508,11 +525,11 @@ main.portfolio-page-layout {
 
   main.portfolio-page-layout {
     padding: 20px !important;
-    margin-top: 90px !important; /* Perfecte afstand onder de topbar op mobiel */
+    margin-top: 110px !important; 
   }
   
   main.inner-page {
-    padding: 90px 20px 20px 20px;
+    padding: 110px 20px 20px 20px;
   }
   
   .portfolio-grid {
