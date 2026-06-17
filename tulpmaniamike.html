@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project 2 - Tulipmania Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/image4.png">
+</head>
+<body class="inner-page">
+
+<nav>
+  <div class="nav-logo-top">
+    <a href="index.html" class="logo-link">
+      <img src="images/image4.png" alt="Tulipmania Studios Logo">
+    </a>
+  </div>
+
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+  
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="portfolio.html" class="active">Portfolio</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div> 
+</nav>
+
+<div class="about-text-panel" style="font-family: 'Courier New', Courier, monospace;">
+  <h2 class="underline-accent" style="font-family: 'Lexend Exa', sans-serif;">Tulipmania Mike</h2>
+  
+  <p style="margin-top: 20px; font-weight: bold; text-transform: uppercase; color: #ffedfe; letter-spacing: 1px;">Summary:</p>
+  
+  <p style="margin-bottom: 8px; line-height: 1.4;">
+    <strong>What:</strong> Short film<br>
+    <strong>Genre:</strong> Adventure / Comedy<br>
+    <strong>Location:</strong> Dutch countryside, NL<br>
+    <strong>Language:</strong> Dutch<br>
+    <strong>Film length:</strong> ca. 8 minutes<br>
+    <strong>Shooting period:</strong> March 2025<br>
+    <strong>Cast & crew:</strong> 1 cast, 3 crew
+  </p>
+  
+  <p style="margin-top: 30px; font-weight: bold; text-transform: uppercase; color: #ffedfe; letter-spacing: 1px;">Film plot:</p>
+  
+  <p style="line-height: 1.6; text-align: justify;">
+    In the Dutch countryside, "Tulipmania Mike" has devoted his life to solving a 400-year-old horticultural mystery. While his neighbors see an oddball obsessed with flowers, Mike believes an ancestral riddle will lead him to the most extraordinary tulip ever known. On the long-awaited day of reckoning, his search takes an unexpected turn.
+  </p>
+</div>
+  
+<section id="hero">
+  <div class="hero-slide">
+    <img src="images/image10.png" alt="Tulipmania Mike Achtergrond" class="active">
+  </div>
+</section>
+
+<script>
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('show');
+}
+</script>
+</body>
+</html>
