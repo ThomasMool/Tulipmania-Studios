@@ -32,6 +32,28 @@
       background: #ffedfe;
       box-shadow: 0 0 15px rgba(255, 237, 254, 0.4);
     }
+
+    /* ========================================================
+       PAGE-SPECIFIC BACKGROUND IMAGE CONTROL (Tulipmania Mike)
+       ======================================================== */
+    
+    /* 1. Desktop Vertical & Zoom Adjustments */
+    #hero .hero-slide img {
+      /* Adjust '10%' to slide the image vertically on desktop */
+      object-position: center -170% !important; 
+      /* FIXED: Keeps image centered in the container while applying zoom */
+      transform: translate(-45%, -50%) scale(1.10); 
+    }
+
+    /* 2. Mobile Vertical & Zoom Adjustments */
+    @media (max-width: 768px) {
+      #hero .hero-slide img {
+        /* Adjust '20%' to slide the image vertically on mobile */
+        object-position: center 20% !important; 
+        /* FIXED: Keeps image centered in the container while applying mobile zoom */
+        transform: translate(-50%, -50%) scale(1.30) !important; 
+      }
+    }
   </style>
 </head>
 <body class="inner-page">
@@ -53,7 +75,6 @@
   </div> 
 </nav>
 
-<!-- HET SCHUIVENDE TEKST PANEEL MET COURIER NEW INFORMATIE -->
 <div class="about-text-panel" style="font-family: 'Courier New', Courier, monospace;">
   <h2 class="underline-accent" style="font-family: 'Lexend Exa', sans-serif;">Tulpmania Mike</h2>
   
@@ -75,15 +96,12 @@
     In the Dutch countryside, "Tulpmania Mike" has devoted his life to solving a 400-year-old horticultural mystery. While his neighbors see an oddball obsessed with flowers, Mike believes an ancestral riddle will lead him to the most extraordinary tulip ever known. On the long-awaited day of reckoning, his search takes an unexpected turn.
   </p>
 
-  <!-- DE COURIER WATCH BUTTON -->
-  <!-- Vervang de href link hieronder met de echte YouTube link van de tweede film -->
   <a href="https://www.youtube.com/watch?v=YOUR_SECOND_VIDEO_ID" target="_blank" class="watch-button">&#9658; Watch on YouTube</a>
 </div>
   
-<!-- DE SPECIFIEKE ACHTERGROND VOOR DE TWEEDE FILM -->
 <section id="hero">
   <div class="hero-slide">
-    <img src="images/image10.png" alt="Tulipmania Mike Achtergrond" class="active">
+    <img src="images/image16.png" alt="Tulipmania Mike Achtergrond" class="active">
   </div>
 </section>
 
