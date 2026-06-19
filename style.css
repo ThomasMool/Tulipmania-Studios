@@ -165,7 +165,7 @@ main.portfolio-page-layout ~ #hero .hero-slide img,
 
 .hero-text {
   position: fixed;
-  top: 58%; 
+  top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 150;
