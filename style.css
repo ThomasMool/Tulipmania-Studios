@@ -56,6 +56,16 @@ nav {
   transition: opacity 0.3s ease;
 }
 
+.nav-logo-text {
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 20px;
+  color: #fcf0e3;
+  margin-left: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap; 
+}
+
 .nav-logo-top .logo-link:hover img {
   opacity: 1;
 }
@@ -111,7 +121,7 @@ nav .nav-links a.active {
 }
 
 /* =========================================
-   HERO & BACKGROUND (HOMEPAGE SLIDESHOW)
+   HERO & BACKGROUND (DESKTOP SLIDESHOW)
    ========================================= */
 #hero {
   position: fixed;
@@ -125,65 +135,29 @@ nav .nav-links a.active {
 
 #hero .hero-slide img {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Keeps large images centered inside container frame */
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
   display: block;
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
-  transform: scale(1.00); /* Standaard schaal voor de slideshow */
 }
 
 #hero .hero-slide img.active {
   opacity: 1;
 }
 
-/* PAS HIERONDER DE ZOOM (scale) EN POSITIE (object-position) PER SLIDE AAN:
-   - transform: scale(1.15); betekent 15% ingezoomd.
-   - object-position: center 20%; schuift het beeld omhoog.
-*/
+/* Base horizontal/vertical fallbacks for homepage slideshow */
+#hero .hero-slide img:nth-child(1) { min-height: 115%; min-width: 115%; object-position: center 20%; }
+#hero .hero-slide img:nth-child(2) { min-height: 115%; min-width: 115%; object-position: center center; }
+#hero .hero-slide img:nth-child(3) { min-height: 100%; min-width: 100%; object-position: center 40%; }
+#hero .hero-slide img:nth-child(4) { min-height: 100%; min-width: 100%; object-position: center center; }
+#hero .hero-slide img:nth-child(5) { min-height: 125%; min-width: 125%; object-position: center 60%; }
+#hero .hero-slide img:nth-child(6) { min-height: 100%; min-width: 100%; object-position: center center; }
 
-/* Slide 1 (image5.png) */
-#hero .hero-slide img:nth-child(1) {
-  transform: scale(1.15); 
-  object-position: center 20%; 
-}
-
-/* Slide 2 (image8.png) */
-#hero .hero-slide img:nth-child(2) {
-  transform: scale(1.15); 
-  object-position: center center;
-}
-
-/* Slide 3 (image11.png) */
-#hero .hero-slide img:nth-child(3) {
-  transform: scale(1.00); 
-  object-position: center 40%;
-}
-
-/* Slide 4 (image3.jpg) */
-#hero .hero-slide img:nth-child(4) {
-  transform: scale(1.00); 
-  object-position: center center;
-}
-
-/* Slide 5 (image9.png) */
-#hero .hero-slide img:nth-child(5) {
-  transform: scale(1.25); 
-  object-position: center 60%; 
-}
-
-/* Slide 6 (image12.png) */
-#hero .hero-slide img:nth-child(6) {
-  transform: scale(1.00); 
-  object-position: center center;
-}
-
-
-/* Overige Hero tekst instellingen */
 main.portfolio-page-layout ~ #hero .hero-slide img,
 #hero .hero-slide img[style*="opacity: 1"] {
   opacity: 1 !important;
@@ -272,38 +246,31 @@ main.portfolio-page-layout {
   height: 100% !important;
   display: block !important;
   object-fit: cover;
-  transform: scale(1.00); 
-  object-position: center center; 
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* VERTICALE UITLIJNING & ZOOM PER PORTFOLIO BOX */
-
-/* MOVIE BOX 1: Beeld omhoog geschoven (5%) */
+/* --- DESKTOP: MOVIE BOX 1 --- */
 .featured-video-hero:nth-child(1) > img {
   object-position: center 40%; 
-  transform: scale(1.30); 
+  transform: scale(1.55); 
+}
+.featured-video-hero:nth-child(1):hover > img {
+  transform: scale(1.35); 
 }
 
-/* MOVIE BOX 2: Beeld omlaag (55%) en standaard 12% ingezoomd */
+/* --- DESKTOP: MOVIE BOX 2 --- */
 .featured-video-hero:nth-child(2) > img {
   object-position: right 60%; 
   transform: scale(1.30); 
 }
-
-/* Specifieke hover zoom-override voor Box 2, zodat deze nóg iets verder zoomt bij hover */
 .featured-video-hero:nth-child(2):hover > img {
   transform: scale(1.18);
 }
 
-
 .featured-video-hero::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0);
   z-index: 2;
   transition: background 0.4s ease;
@@ -316,11 +283,6 @@ main.portfolio-page-layout {
 .featured-video-hero:hover {
   transform: translateY(-4px);
   box-shadow: 0 30px 60px rgba(255, 237, 254, 0.15);
-}
-
-/* Hover effect voor Box 1 (en eventuele andere boxen) */
-.featured-video-hero:nth-child(1):hover > img {
-  transform: scale(1.05); 
 }
 
 /* HOVER CONTENT WRAPPER */
@@ -381,26 +343,16 @@ main.portfolio-page-layout {
 }
 
 /* =========================================
-   ANIMATIE KEYFRAMES
+   ANIMATION KEYFRAMES
    ========================================= */
 @keyframes shrinkAndMoveUp {
-  from {
-    transform: translateY(0) scale(1);
-  }
-  to {
-    transform: translateY(-60px) scale(0.65); 
-  }
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-60px) scale(0.65); }
 }
 
 @keyframes fadeInTextOnly {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .play-overlay-hint {
@@ -460,7 +412,6 @@ main.portfolio-page-layout {
   background: #ffedfe;
 }
 
-/* CONTACT LINKS STYLING */
 .contact-email-link,
 .contact-social-link {
   color: #ffedfe;
@@ -478,6 +429,21 @@ main.portfolio-page-layout {
 
 @keyframes slideOut {
   to { transform: translateX(0); }
+}
+
+/* =========================================
+   COMING SOON LABEL
+   ========================================= */
+.coming-soon-text {
+  display: block;
+  font-family: 'Lexend Exa', sans-serif;
+  font-size: 13px;
+  color: #ffedfe;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 12px;
+  text-align: center;
+  opacity: 0.8;
 }
 
 /* =========================================
@@ -530,6 +496,10 @@ main.portfolio-page-layout {
     max-width: 60px; 
     max-height: 70px;
   }
+  
+  .nav-logo-text {
+    display: none;
+  }
 
   nav .hamburger {
     display: block;
@@ -572,7 +542,7 @@ main.portfolio-page-layout {
     top: 0;
     width: 100%;
     height: auto;
-    padding: 110px 20px 40px 20px; /* Aangepast van 40px naar 110px zodat de titel onder de nav-balk zakt */
+    padding: 110px 20px 40px 20px; 
     transform: none;
     animation: none;
     border-right: none;
@@ -605,7 +575,20 @@ main.portfolio-page-layout {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9) !important;
   }
 
-  .featured-video-hero:hover > img {
+  /* --- MOBILE MOVIE BOX OVERRIDES --- */
+  .featured-video-hero:nth-child(1) > img {
+    transform: scale(1.30) !important; 
+    object-position: center 40% !important;
+  }
+  .featured-video-hero:nth-child(1):hover > img {
+    transform: scale(1.30) !important; 
+  }
+
+  .featured-video-hero:nth-child(2) > img {
+    transform: scale(1.30) !important; 
+    object-position: right 60% !important;
+  }
+  .featured-video-hero:nth-child(2):hover > img {
     transform: scale(1.30) !important;
   }
 
@@ -624,43 +607,11 @@ main.portfolio-page-layout {
     display: none !important;
   }
 
-  /* =========================================
-     MOBILE HOMEPAGE SLIDESHOW ADJUSTMENTS
-     ========================================= */
-  
-  /* Slide 1 (image5.png) */
-  #hero .hero-slide img:nth-child(1) {
-    transform: scale(1.20);        
-    object-position: center 10%;   
-  }
-
-  /* Slide 2 (image8.png) */
-  #hero .hero-slide img:nth-child(2) {
-    transform: scale(1.20); 
-    object-position: center;  
-  }
-
-  /* Slide 3 (image11.png) */
-  #hero .hero-slide img:nth-child(3) {
-    transform: scale(1.00); 
-    object-position: center 30%;
-  }
-
-  /* Slide 4 (image3.jpg) */
-  #hero .hero-slide img:nth-child(4) {
-    transform: scale(0.90); 
-    object-position: center 50%; 
-  }
-
-  /* Slide 5 (image9.png) */
-  #hero .hero-slide img:nth-child(5) {
-    transform: scale(1.00); 
-    object-position: center 30%;
-  }
-
-  /* Slide 6 (image12.png) */
-  #hero .hero-slide img:nth-child(6) {
-    transform: scale(1.00); 
-    object-position: center 50%;   
-  }
+  /* --- MOBILE HOMEPAGE SLIDESHOW OVERRIDES --- */
+  #hero .hero-slide img:nth-child(1) { min-height: 120%; min-width: 120%; object-position: center 20% !important; }
+  #hero .hero-slide img:nth-child(2) { min-height: 120%; min-width: 120%; object-position: center center !important; }
+  #hero .hero-slide img:nth-child(3) { min-height: 100%; min-width: 100%; object-position: center 20% !important; }
+  #hero .hero-slide img:nth-child(4) { min-height: 100%; min-width: 100%; object-position: 30% center !important; }
+  #hero .hero-slide img:nth-child(5) { min-height: 140%; min-width: 140%; object-position: 70% center !important; }
+  #hero .hero-slide img:nth-child(6) { min-height: 100%; min-width: 100%; object-position: 20% center !important; }
 }
