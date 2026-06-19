@@ -8,6 +8,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="images/image4.png">
+
+  <style>
+    /* ========================================================
+       NAVIGATION TEXT POSITIONING (All Screens)
+       ======================================================== */
+    .nav-logo-text {
+      /* LEFT/RIGHT POSITION: Distance from the logo icon graphic */
+      margin-left: 10px !important; 
+      
+      /* UP/DOWN POSITION: Adjust to visually align vertically with the image center */
+      /* Use a positive number (like 5px) to move it down, or negative (like -5px) to move it up */
+      margin-top: 30px !important; 
+    }
+
+    /* ========================================================
+       MOBILE HERO TEXT ADJUSTMENTS (Index Page Content)
+       ======================================================== */
+    @media (max-width: 768px) {
+      /* NOTE: Your main CSS hides '.nav-logo-text' on mobile via 'display: none'. */
+      /* If you want it visible on mobile, uncomment the line below: */
+      /* .nav-logo-text { display: block !important; margin-left: 10px !important; } */
+
+      .hero-text {
+        top: 65% !important; 
+        left: 50% !important; 
+        transform: translate(-50%, -50%) !important; 
+      }
+
+      .hero-text h2 {
+        font-size: 1.2rem !important;
+        line-height: 1.4 !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,6 +49,9 @@
   <div class="nav-logo-top">
     <a href="index.html" class="logo-link">
       <img src="images/image4.png" alt="Tulipmania Studios Logo">
+      <span class="nav-logo-text" style="font-family: 'Courier New', Courier, monospace;">
+          Dutch filmmakers
+      </span>
     </a>
   </div>
 
