@@ -637,7 +637,7 @@ main.portfolio-page-layout {
   /* Slide 2 (image8.png) */
   #hero .hero-slide img:nth-child(2) {
     transform: scale(1.20); 
-    object-position: left center;  
+    object-position: center;  
   }
 
   /* Slide 3 (image11.png) */
@@ -649,18 +649,18 @@ main.portfolio-page-layout {
   /* Slide 4 (image3.jpg) */
   #hero .hero-slide img:nth-child(4) {
     transform: scale(0.90); 
-    object-position: left center; 
+    object-position: center 50%; 
   }
 
   /* Slide 5 (image9.png) */
   #hero .hero-slide img:nth-child(5) {
     transform: scale(1.00); 
-    object-position: center 50%;
+    object-position: center 30%;
   }
 
   /* Slide 6 (image12.png) */
   #hero .hero-slide img:nth-child(6) {
     transform: scale(1.00); 
-    object-position: left center;   
+    object-position: center 50%;   
   }
 }
