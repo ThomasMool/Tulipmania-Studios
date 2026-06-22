@@ -10,6 +10,23 @@
   <link rel="icon" type="image/png" href="images/image4.png">
   
   <style>
+    /* ========================================================
+       NAVIGATION TEXT POSITIONING (All Screens)
+       ======================================================== */
+    .nav-logo-text {
+      /* LEFT/RIGHT POSITION: Distance from the logo icon graphic */
+      margin-left: 10px !important; 
+      
+      /* UP/DOWN POSITION: Adjust to visually align vertically with the image center */
+      margin-top: 70px !important; 
+    }
+
+    @media (max-width: 768px) {
+      /* NOTE: Your main CSS hides '.nav-logo-text' on mobile via 'display: none'. */
+      /* If you want it visible on mobile, uncomment the line below: */
+      /* .nav-logo-text { display: block !important; margin-left: 10px !important; } */
+    }
+
     /* Tijdelijke extra styling voor de Courier-knop hover-effecten */
     .watch-button {
       display: inline-block;
@@ -62,6 +79,9 @@
   <div class="nav-logo-top">
     <a href="index.html" class="logo-link">
       <img src="images/image4.png" alt="Tulipmania Studios Logo">
+      <span class="nav-logo-text" style="font-family: 'Courier New', Courier, monospace;">
+          - Dutch filmmakers
+      </span>
     </a>
   </div>
 
