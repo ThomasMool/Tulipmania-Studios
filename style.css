@@ -1,617 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tulipmania Studios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="images/image4.png">
 
-/* =========================================
-   GLOBAL RESET
-   ========================================= */
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: 'Open Sans', Arial, sans-serif;
-  background: #0a0a0a;
-  color: #e6e6e6;
-}
+  <style>
+    /* ========================================================
+       NAVIGATION TEXT POSITIONING (All Screens)
+       ======================================================== */
+    .nav-logo-text {
+      /* LEFT/RIGHT POSITION: Distance from the logo icon graphic */
+      margin-left: 10px !important; 
+      
+      /* UP/DOWN POSITION: Adjust to visually align vertically with the image center */
+      /* Use a positive number (like 5px) to move it down, or negative (like -5px) to move it up */
+      margin-top: 70px !important; 
+    }
 
-/* =========================================
-   NAVIGATION BAR
-   ========================================= */
-nav {
-  width: 100%;
-  height: 140px; 
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 50px; 
-  z-index: 9999;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
-  box-sizing: border-box;
-}
+    /* ========================================================
+       MOBILE HERO TEXT ADJUSTMENTS (Index Page Content)
+       ======================================================== */
+    @media (max-width: 768px) {
+      /* NOTE: Your main CSS hides '.nav-logo-text' on mobile via 'display: none'. */
+      /* If you want it visible on mobile, uncomment the line below: */
+      /* .nav-logo-text { display: block !important; margin-left: 10px !important; } */
 
-.nav-logo-top {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0;
-  width: auto;
-  height: 100%;
-}
+      .hero-text {
+        top: 65% !important; 
+        left: 50% !important; 
+        transform: translate(-50%, -50%) !important; 
+      }
 
-.nav-logo-top .logo-link {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  text-decoration: none;
-}
+      .hero-text h2 {
+        font-size: 1.2rem !important;
+        line-height: 1.4 !important;
+      }
+    }
+  </style>
+</head>
+<body>
 
-.nav-logo-top img {
-  width: auto;
-  max-width: 200px;  
-  max-height: 100px; 
-  display: block;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
+<nav>
+  <div class="nav-logo-top">
+    <a href="index.html" class="logo-link">
+      <img src="images/image4.png" alt="Tulipmania Studios Logo">
+      <span class="nav-logo-text" style="font-family: 'Courier New', Courier, monospace;">
+          - Dutch filmmakers
+      </span>
+    </a>
+  </div>
 
-.nav-logo-text {
-  font-family: 'Lexend Exa', sans-serif;
-  font-size: 20px;
-  color: #fcf0e3;
-  margin-left: 20px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap; 
-}
+  <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+  <div class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
 
-.nav-logo-top .logo-link:hover img {
-  opacity: 1;
-}
+<main>
+  <section id="hero">
+    <div class="hero-slide">
+      <img src="images/image5.png" alt="Hero 1">
+      <img src="images/image8.png" alt="Hero 2">
+      <img src="images/image11.png" alt="Hero 3">
+      <img src="images/image3.jpg" alt="Hero 4">
+      <img src="images/image9.png" alt="Hero 5">
+      <img src="images/image12.png" alt="Hero 6">
+    </div>
+  </section>
 
-nav .hamburger {
-  display: none;
-  font-size: 42px; 
-  color: #fcf0e3;
-  cursor: pointer;
-}
-
-nav .nav-links {
-  display: flex;
-  flex-direction: row;
-  margin-top: 0;
-  align-items: center;
-}
-
-nav .nav-links a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #e3e3e3;
-  font-size: 22px; 
-  font-weight: 400;
-  letter-spacing: 1.5px;
-  margin-left: 40px; 
-  margin-bottom: 0;
-  position: relative;
-  display: inline-block;
-  transition: color 0.3s ease;
-}
-
-nav .nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: #ffedfe;
-  transition: width 0.3s ease;
-}
-
-nav .nav-links a:hover::after,
-nav .nav-links a.active::after {
-  width: 100%;
-}
-
-nav .nav-links a:hover,
-nav .nav-links a.active {
-  color: #ffedfe;
-  font-weight: 700;
-}
-
-/* =========================================
-   HERO & BACKGROUND (DESKTOP SLIDESHOW)
-   ========================================= */
-#hero {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 1 !important;
-}
-
-#hero .hero-slide img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Keeps large images centered inside container frame */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;
-}
-
-#hero .hero-slide img.active {
-  opacity: 1;
-}
-
-/* Base horizontal/vertical fallbacks for homepage slideshow */
-#hero .hero-slide img:nth-child(1) { min-height: 115%; min-width: 115%; object-position: center 20%; }
-#hero .hero-slide img:nth-child(2) { min-height: 115%; min-width: 115%; object-position: center center; }
-#hero .hero-slide img:nth-child(3) { min-height: 100%; min-width: 100%; object-position: center 40%; }
-#hero .hero-slide img:nth-child(4) { min-height: 100%; min-width: 100%; object-position: center center; }
-#hero .hero-slide img:nth-child(5) { min-height: 125%; min-width: 125%; object-position: center 60%; }
-#hero .hero-slide img:nth-child(6) { min-height: 100%; min-width: 100%; object-position: center center; }
-
-main.portfolio-page-layout ~ #hero .hero-slide img,
-#hero .hero-slide img[style*="opacity: 1"] {
-  opacity: 1 !important;
-}
-
-.hero-text {
-  position: fixed;
-  top: 50%; 
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 150;
-  text-align: center;
-  width: 90%;
-  max-width: 900px;
-  padding: 0 20px;
-  pointer-events: none;
-}
-
-.hero-text h2 {
-  font-family: 'Lexend Exa', sans-serif;
-  color: #fcf0e3;
-  font-size: 1.8rem;
-  line-height: 1.5;
-  margin: 0;
-  letter-spacing: 1.5px;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
-}
-
-/* =========================================
-   LAYOUT & MAIN PAGES
-   ========================================= */
-main {
-  margin-left: 0;
-  padding-top: 140px; 
-  height: 100vh;
-  box-sizing: border-box;
-}
-
-main.inner-page {
-  margin-left: 0;
-  padding: 180px 40px 40px 40px; 
-  box-sizing: border-box;
-  height: auto;
-}
-
-main.portfolio-page-layout {
-  margin-left: 0;
-  min-height: 100vh;
-  height: auto;
-  position: relative !important;
-  z-index: 99 !important;
-  padding: 180px 40px 40px 40px; 
-  box-sizing: border-box;
-  display: flex !important;
-  flex-direction: column;
-  background-color: #000000; 
-}
-
-/* =========================================
-   PORTFOLIO GRID & CARDS
-   ========================================= */
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: 1fr; 
-  gap: 40px; 
-  width: 100%;
-  max-width: 1200px; 
-  margin: 0 auto; 
-}
-
-.featured-video-hero {
-  width: 100% !important;
-  height: 400px !important;
-  position: relative;
-  display: block !important;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(255, 237, 254, 0.1);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-  text-decoration: none;
-}
-
-.featured-video-hero > img {
-  width: 100% !important;
-  height: 100% !important;
-  display: block !important;
-  object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* --- DESKTOP: MOVIE BOX 1 --- */
-.featured-video-hero:nth-child(1) > img {
-  object-position: center 40%; 
-  transform: scale(1.55); 
-}
-.featured-video-hero:nth-child(1):hover > img {
-  transform: scale(1.35); 
-}
-
-/* --- DESKTOP: MOVIE BOX 2 --- */
-.featured-video-hero:nth-child(2) > img {
-  object-position: right 60%; 
-  transform: scale(1.30); 
-}
-.featured-video-hero:nth-child(2):hover > img {
-  transform: scale(1.18);
-}
-
-.featured-video-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0);
-  z-index: 2;
-  transition: background 0.4s ease;
-}
-
-.featured-video-hero:hover::before {
-  background: rgba(0, 0, 0, 0.75);
-}
-
-.featured-video-hero:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 60px rgba(255, 237, 254, 0.15);
-}
-
-/* HOVER CONTENT WRAPPER */
-.hero-hover-image {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  opacity: 0;
-  visibility: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  height: 90%;
-  transition: opacity 0.4s ease, visibility 0.4s;
-  pointer-events: none;
-}
-
-.featured-video-hero:hover .hero-hover-image {
-  opacity: 1;
-  visibility: visible;
-}
-
-.hero-hover-image img {
-  max-width: 450px;
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: translateY(0) scale(1);
-  transition: none;
-}
-
-.featured-video-hero:hover .hero-hover-image img {
-  animation: shrinkAndMoveUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  animation-delay: 1s;
-}
-
-.hero-hover-image .hover-summary {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #fcf0e3;
-  text-align: center;
-  margin: 0;
-  max-width: 500px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
-  position: absolute;
-  bottom: 12%; 
-  opacity: 0;
-}
-
-.featured-video-hero:hover .hover-summary {
-  animation: fadeInTextOnly 0.6s ease forwards;
-  animation-delay: 1s;
-}
-
-/* =========================================
-   ANIMATION KEYFRAMES
-   ========================================= */
-@keyframes shrinkAndMoveUp {
-  from { transform: translateY(0) scale(1); }
-  to { transform: translateY(-60px) scale(0.65); }
-}
-
-@keyframes fadeInTextOnly {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.play-overlay-hint {
-  position: absolute;
-  z-index: 4;
-}
-
-/* =========================================
-   SLIDING PANEL & LINKS
-   ========================================= */
-.about-text-panel {
-  position: fixed;
-  top: 140px; 
-  left: 0;
-  width: 420px;
-  height: calc(100vh - 140px); 
-  background: rgba(30, 30, 30, 0.95);
-  box-sizing: border-box;
-  padding: 40px;
-  z-index: 100;
-  border-right: 1px solid rgba(255, 237, 254, 0.1);
-  transform: translateX(-100%);
-  animation: slideOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  animation-delay: 0.1s;
-}
-
-.about-text-panel h2 {
-  font-family: 'Lexend Exa', sans-serif;
-  color: #fcf0e3;
-  font-size: 24px;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.about-text-panel p {
-  font-size: 15px;
-  line-height: 1.8;
-  color: #cccccc;
-  margin-bottom: 20px;
-}
-
-.about-text-panel h2.underline-accent {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.about-text-panel h2.underline-accent::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: #ffedfe;
-}
-
-.contact-email-link,
-.contact-social-link {
-  color: #ffedfe;
-  text-decoration: none;
-  font-weight: 700;
-  border-bottom: 1px dashed rgba(255, 237, 254, 0.4);
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.contact-email-link:hover,
-.contact-social-link:hover {
-  color: #fcf0e3;
-  border-bottom: 1px solid #fcf0e3;
-}
-
-@keyframes slideOut {
-  to { transform: translateX(0); }
-}
-
-/* =========================================
-   COMING SOON LABEL
-   ========================================= */
-.coming-soon-text {
-  display: block;
-  font-family: 'Lexend Exa', sans-serif;
-  font-size: 13px;
-  color: #ffedfe;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 12px;
-  text-align: center;
-  opacity: 0.8;
-}
-
-/* =========================================
-   GALLERIES
-   ========================================= */
-.about-gallery,
-.portfolio-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.about-gallery img,
-.portfolio-gallery img,
-.portfolio-gallery .video-card {
-  width: 250px;
-  height: 180px;
-  display: inline-block;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.about-gallery img,
-.portfolio-gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
-}
-
-.about-gallery img:hover,
-.portfolio-gallery img:hover,
-.portfolio-gallery .video-card:hover img {
-  transform: scale(1.04) translateY(-6px);
-  box-shadow: 0 15px 30px rgba(255, 237, 254, 0.15);
-  cursor: pointer;
-}
-
-/* =========================================
-   RESPONSIVE (MOBILE ADJUSTMENTS)
-   ========================================= */
-@media (max-width: 768px) {
-  nav {
-    padding: 10px 20px;
-    height: 90px; 
-  }
-
-  .nav-logo-top img {
-    max-width: 60px; 
-    max-height: 70px;
-  }
+  <div class="hero-text">
+    <h2>Passionate About Film.<br>Maniacally So.</h2>
+  </div>
+</main>
   
-  .nav-logo-text {
-    display: none;
-  }
-
-  nav .hamburger {
-    display: block;
-    font-size: 38px;
-    padding: 5px 10px;
-  }
-  
-  nav .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 90px; 
-    right: 20px;
-    background: rgba(10, 10, 10, 0.95);
-    padding: 20px;
-    border-radius: 8px;
-    z-index: 50;
-    width: 170px;
-    align-items: flex-start;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  }
-  
-  nav .nav-links a {
-    margin-left: 0;
-    margin-bottom: 15px;
-    font-size: 16px;
-  }
-  
-  nav .nav-links a::after {
-    left: 0;
-    transform: none;
-  }
-
-  nav .nav-links.show {
-    display: flex;
-  }
-
-  .about-text-panel {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: auto;
-    padding: 110px 20px 40px 20px; 
-    transform: none;
-    animation: none;
-    border-right: none;
-    box-sizing: border-box;
-  }
-
-  main.portfolio-page-layout {
-    padding: 20px !important;
-    margin-top: 110px !important; 
-  }
-  
-  main.inner-page {
-    padding: 110px 20px 20px 20px;
-  }
-  
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .featured-video-hero {
-    height: 250px !important;
-  }
-
-  .featured-video-hero::before {
-    background: rgba(0, 0, 0, 0.4) !important;
-  }
-
-  .featured-video-hero:hover {
-    transform: none !important;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9) !important;
-  }
-
-  /* --- MOBILE MOVIE BOX OVERRIDES --- */
-  .featured-video-hero:nth-child(1) > img {
-    transform: scale(1.30) !important; 
-    object-position: center 40% !important;
-  }
-  .featured-video-hero:nth-child(1):hover > img {
-    transform: scale(1.30) !important; 
-  }
-
-  .featured-video-hero:nth-child(2) > img {
-    transform: scale(1.30) !important; 
-    object-position: right 60% !important;
-  }
-  .featured-video-hero:nth-child(2):hover > img {
-    transform: scale(1.30) !important;
-  }
-
-  .hero-hover-image {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .hero-hover-image img {
-    max-width: 220px !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  .hero-hover-image .hover-summary {
-    display: none !important;
-  }
-
-  /* --- MOBILE HOMEPAGE SLIDESHOW OVERRIDES --- */
-  #hero .hero-slide img:nth-child(1) { min-height: 120%; min-width: 120%; object-position: center 20% !important; }
-  #hero .hero-slide img:nth-child(2) { min-height: 120%; min-width: 120%; object-position: center center !important; }
-  #hero .hero-slide img:nth-child(3) { min-height: 100%; min-width: 100%; object-position: center 20% !important; }
-  #hero .hero-slide img:nth-child(4) { min-height: 100%; min-width: 100%; object-position: 30% center !important; }
-  #hero .hero-slide img:nth-child(5) { min-height: 140%; min-width: 140%; object-position: 70% center !important; }
-  #hero .hero-slide img:nth-child(6) { min-height: 100%; min-width: 100%; object-position: 20% center !important; }
+<script>
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('show');
 }
+</script>
+
+<script>
+const slides = document.querySelectorAll('.hero-slide img');
+let current = 0;
+const delay = 6000;
+
+function showSlide(index) {
+  slides.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+}
+
+showSlide(current);
+setInterval(nextSlide, delay);
+</script>
+</body>
+</html>
