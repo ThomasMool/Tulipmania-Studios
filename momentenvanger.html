@@ -10,7 +10,24 @@
   <link rel="icon" type="image/png" href="images/image4.png">
   
   <style>
-    /* Tijdelijke extra styling voor de Courier-knop hover-effecten */
+    /* ========================================================
+       NAVIGATION TEXT POSITIONING (All Screens)
+       ======================================================== */
+    .nav-logo-text {
+      /* LEFT/RIGHT POSITION: Distance from the logo icon graphic */
+      margin-left: 10px !important; 
+      
+      /* UP/DOWN POSITION: Adjust to visually align vertically with the image center */
+      margin-top: 70px !important; 
+    }
+
+    @media (max-width: 768px) {
+      /* NOTE: Your main CSS hides '.nav-logo-text' on mobile via 'display: none'. */
+      /* If you want it visible on mobile, uncomment the line below: */
+      /* .nav-logo-text { display: block !important; margin-left: 10px !important; } */
+    }
+
+    /* Styling voor de Courier-knop en hover-effecten */
     .watch-button {
       display: inline-block;
       margin-top: 30px;
@@ -32,6 +49,11 @@
       background: #ffedfe;
       box-shadow: 0 0 15px rgba(255, 237, 254, 0.4);
     }
+
+    /* FIX: Zorgt ervoor dat het accentstreepje niet voorbij de titel steekt */
+    .about-text-panel h2.underline-accent::after {
+      width: calc(100% - 10px);
+    }
   </style>
 </head>
 <body class="inner-page">
@@ -40,6 +62,9 @@
   <div class="nav-logo-top">
     <a href="index.html" class="logo-link">
       <img src="images/image4.png" alt="Tulipmania Studios Logo">
+      <span class="nav-logo-text" style="font-family: 'Courier New', Courier, monospace;">
+          - Dutch filmmakers
+      </span>
     </a>
   </div>
 
@@ -53,7 +78,6 @@
   </div> 
 </nav>
 
-<!-- HET SCHUIVENDE TEKST PANEEL MET COURIER NEW INFORMATIE -->
 <div class="about-text-panel" style="font-family: 'Courier New', Courier, monospace;">
   <h2 class="underline-accent" style="font-family: 'Lexend Exa', sans-serif;">De Momentenvanger</h2>
   
@@ -75,12 +99,9 @@
     When photographer Philip becomes consumed by preserving life's last fleeting moments, he starts pushing away the people who care about him most. Haunted by loss and guided by the philosophy of a former mentor, he chases an impossible photograph. In his search for the ultimate final moment, Philip risks becoming part of the image himself.
   </p>
 
-  <!-- DE COURIER WATCH BUTTON -->
-  <!-- Vervang de href link hieronder met de echte YouTube link van de film -->
   <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="watch-button">&#9658; Watch on YouTube</a>
 </div>
-  
-<!-- DE SPECIFIEKE ACHTERGROND VOOR DEZE FILM -->
+
 <section id="hero">
   <div class="hero-slide">
     <img src="images/image15.png" alt="De Momentenvanger Achtergrond" class="active">
