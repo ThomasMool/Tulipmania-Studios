@@ -11,24 +11,29 @@
 
   <style>
     /* ========================================================
-       NAVIGATION TEXT POSITIONING (All Screens)
+       DESKTOP NAVIGATION TEXT POSITIONING
        ======================================================== */
-    .nav-logo-text {
-      /* LEFT/RIGHT POSITION: Distance from the logo icon graphic */
-      margin-left: 10px !important; 
-      
-      /* UP/DOWN POSITION: Adjust to visually align vertically with the image center */
-      /* Use a positive number (like 5px) to move it down, or negative (like -5px) to move it up */
-      margin-top: 70px !important; 
+    @media (min-width: 769px) {
+      .nav-logo-text {
+        /* LEFT/RIGHT POSITION: Distance from the logo icon graphic */
+        margin-left: 10px !important; 
+        
+        /* UP/DOWN POSITION: Centers the text nicely on desktop views */
+        margin-top: 70px !important; 
+        display: inline-block !important;
+      }
     }
 
     /* ========================================================
-       MOBILE HERO TEXT ADJUSTMENTS (Index Page Content)
+       MOBILE NAVIGATION & HERO TEXT ADJUSTMENTS
        ======================================================== */
     @media (max-width: 768px) {
-      /* NOTE: Your main CSS hides '.nav-logo-text' on mobile via 'display: none'. */
-      /* If you want it visible on mobile, uncomment the line below: */
-      /* .nav-logo-text { display: block !important; margin-left: 10px !important; } */
+      /* Prevents the desktop margin rules from ruining the mobile layout */
+      .nav-logo-text { 
+        display: none !important; 
+        margin-top: 0 !important; 
+        margin-left: 0 !important; 
+      }
 
       .hero-text {
         top: 65% !important; 
