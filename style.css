@@ -577,11 +577,11 @@ main.portfolio-page-layout {
 
   /* --- MOBILE MOVIE BOX OVERRIDES --- */
   .featured-video-hero:nth-child(1) > img {
-    transform: scale(1.30) !important; 
+    transform: scale(1.60) !important; 
     object-position: center 40% !important;
   }
   .featured-video-hero:nth-child(1):hover > img {
-    transform: scale(1.30) !important; 
+    transform: scale(1.60) !important; 
   }
 
   .featured-video-hero:nth-child(2) > img {
